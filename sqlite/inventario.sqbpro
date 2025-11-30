@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="inventario.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="9467"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="Asignaciones" custom_title="0" dock_id="4" table="4,12:mainAsignaciones"/><dock_state state="000000ff00000000fd00000001000000020000000000000000fc0100000004fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500330100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500340100000000ffffffff0000011e00ffffff000000000000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1*">-- ============================================
+-- SCRIPT MASIVO DE DATOS DE PRUEBA - ZEUS HOGAR
+-- Datos completos para testing
+-- ============================================
+
+PRAGMA foreign_keys=OFF;
+
+-- ============================================
+-- 1. USUARIOS
+-- ============================================
+
+UPDATE Usuarios SET contraseña = '0192023a7bbd73250516f069df18b500' WHERE usuario = 'admin';
+
+-- ============================================
+-- 2. EMPLEADOS (15 empleados)
+-- ============================================
+
+INSERT INTO Empleados (nombre, apellido_paterno, apellido_materno, telefono, direccion, fecha_ingreso, estado, rol, zona)
+VALUES
+('Carlos', 'González', 'López', '5551001111', 'Calle Principal 123', '2024-01-15', 'activo', 'vendedor', 'XZ'),
+('María', 'Rodríguez', 'García', '5551001112', 'Avenida Central 456', '2024-01-15', 'activo', 'vendedor', 'WZ'),
+('Juan', 'Martínez', 'Sánchez', '5551001113', 'Boulevard Norte 789', '2024-01-15', 'activo', 'vendedor', 'VZ'),
+('Ana', 'López', 'Ramírez', '5551001114', 'Carrera Este 321', '2024-01-15', 'activo', 'cobrador', 'XZ'),
+('Pedro', 'García', 'Flores', '5551001115', 'Calle Sur 654', '2024-01-15', 'activo', 'cobrador', 'WZ'),
+('Laura', 'Castillo', 'Vargas', '5551001116', 'Avenida Oeste 987', '2024-02-01', 'activo', 'vendedor', 'KZ'),
+('Diego', 'Hernández', 'Díaz', '5551001117', 'Plaza Central 111', '2024-02-01', 'activo', 'cobrador', 'VZ'),
+('Sofia', 'Morales', 'Rivera', '5551001118', 'Calle Nueva 222', '2024-02-15', 'activo', 'vendedor', 'AKZ'),
+('Ricardo', 'Santos', 'Mendoza', '5551001119', 'Avenida Principal 333', '2024-02-15', 'activo', 'cobrador', 'TZ'),
+('Daniela', 'Torres', 'Gutiérrez', '5551001120', 'Carrera Sur 444', '2024-03-01', 'activo', 'vendedor', 'RZ'),
+('Felipe', 'Ortiz', 'Ramos', '5551001121', 'Boulevard Este 555', '2024-03-01', 'activo', 'cobrador', 'YZ'),
+('Valentina', 'Ruiz', 'Lara', '5551001122', 'Calle Oeste 666', '2024-03-15', 'activo', 'vendedor', 'XZ'),
+('Alejandro', 'Vega', 'Medina', '5551001123', 'Plaza Sur 777', '2024-03-15', 'activo', 'cobrador', 'WZ'),
+('Camila', 'Ríos', 'Castro', '5551001124', 'Avenida Norte 888', '2024-04-01', 'activo', 'vendedor', 'VZ'),
+('Andrés', 'Cruz', 'Salazar', '5551001125', 'Boulevard Oeste 999', '2024-04-01', 'activo', 'cobrador', 'KZ');
+
+-- ============================================
+-- 3. VEHÍCULOS (10 vehículos)
+-- ============================================
+
+INSERT INTO Vehiculos (placas, marca, modelo, color, fecha_de_vigencia, estado)
+VALUES
+('ABC1234', 'Toyota', 'Corolla', 'Blanco', '2025-12-31', 'activo'),
+('XYZ5678', 'Nissan', 'Sentra', 'Gris', '2025-12-31', 'activo'),
+('DEF9012', 'Chevrolet', 'Cruze', 'Azul', '2025-12-31', 'activo'),
+('GHI3456', 'Volkswagen', 'Jetta', 'Negro', '2025-12-31', 'activo'),
+('JKL7890', 'Hyundai', 'Elantra', 'Rojo', '2025-12-31', 'activo'),
+('MNO1234', 'Ford', 'Fiesta', 'Plateado', '2025-12-31', 'activo'),
+('PQR5678', 'Mazda', 'CX-5', 'Blanco', '2025-12-31', 'activo'),
+('STU9012', 'Kia', 'Forte', 'Negro', '2025-12-31', 'activo'),
+('VWX3456', 'Honda', 'Civic', 'Gris', '2025-12-31', 'activo'),
+('YZA7890', 'Subaru', 'Impreza', 'Azul', '2025-12-31', 'activo');
+
+-- ============================================
+-- 4. PRODUCTOS (20 productos)
+-- ============================================
+
+INSERT INTO Productos (nombre, descripcion, material, color, precio_costo, precio_venta, stock, estado)
+VALUES
+('Juego de Sala Premium', 'Juego de sala 3 piezas microfibra', 'Microfibra', 'Gris', 5000.00, 8500.00, 100, 'disponible'),
+('Comedor 6 Sillas', 'Comedor madera con sillas', 'Madera', 'Caoba', 3500.00, 6200.00, 80, 'disponible'),
+('Cama King Size', 'Cama matrimonial acolchonada', 'Madera/Tela', 'Café', 4000.00, 7500.00, 60, 'disponible'),
+('Estantería 5 Niveles', 'Estante metal resistente', 'Metal', 'Negro', 800.00, 1500.00, 150, 'disponible'),
+('Lámpara de Piso', 'Lámpara moderna pantalla tela', 'Metal/Tela', 'Blanca', 300.00, 650.00, 200, 'disponible'),
+('Espejo Decorativo', 'Espejo grande marco metal', 'Vidrio/Metal', 'Plateado', 400.00, 900.00, 120, 'disponible'),
+('Cortinas Premium', 'Cortinas blackout par', 'Tela', 'Gris', 250.00, 500.00, 250, 'disponible'),
+('Alfombra 2x3m', 'Alfombra turca tejida mano', 'Lana', 'Beige', 600.00, 1400.00, 75, 'disponible'),
+('Sofá Cama 2 Plazas', 'Sofá convertible en cama', 'Tela', 'Verde', 2500.00, 5000.00, 40, 'disponible'),
+('Mesilla de Noche', 'Mesilla con 2 cajones', 'Madera', 'Blanca', 500.00, 1200.00, 100, 'disponible'),
+('Escritorio Moderno', 'Escritorio con estantes', 'Madera/Metal', 'Roble', 1200.00, 2400.00, 50, 'disponible'),
+('Sillón Reclinable', 'Sillón cómodo reclinable', 'Cuero', 'Negro', 1500.00, 3200.00, 35, 'disponible'),
+('Cuadro Abstracto', 'Cuadro grande pared', 'Canvas', 'Multicolor', 150.00, 400.00, 80, 'disponible'),
+('Tapete Persa', 'Tapete persa pequeño', 'Lana', 'Rojo', 800.00, 1800.00, 45, 'disponible'),
+('Librería Grande', 'Librería 6 compartimentos', 'Madera', 'Wengué', 1000.00, 2200.00, 30, 'disponible'),
+('Cojín Decorativo', 'Cojín relleno tela', 'Tela/Poliéster', 'Azul', 100.00, 250.00, 300, 'disponible'),
+('Piso Laminado', 'Caja piso laminado', 'Laminado', 'Roble', 200.00, 500.00, 200, 'disponible'),
+('Pintura Acrílica', 'Pintura para paredes', 'Acrílica', 'Blanca', 50.00, 150.00, 500, 'disponible'),
+('Puerta Interior', 'Puerta madera interior', 'Madera', 'Blanca', 300.00, 700.00, 60, 'disponible'),
+('Ventana Aluminio', 'Ventana aluminio vidrio', 'Aluminio', 'Plateado', 400.00, 1000.00, 40, 'disponible');
+
+-- ============================================
+-- 5. SEMANAS DE COBRO (8 semanas)
+-- ============================================
+
+INSERT INTO Semanas_Cobro (fecha_inicio, fecha_fin, mes, anio, numero_semana, activa)
+VALUES
+('2024-10-01', '2024-10-06', 'Octubre', 2024, 1, 0),
+('2024-10-07', '2024-10-13', 'Octubre', 2024, 2, 0),
+('2024-10-14', '2024-10-20', 'Octubre', 2024, 3, 0),
+('2024-10-21', '2024-10-27', 'Octubre', 2024, 4, 0),
+('2024-11-01', '2024-11-07', 'Noviembre', 2024, 1, 0),
+('2024-11-08', '2024-11-14', 'Noviembre', 2024, 2, 1),
+('2024-11-15', '2024-11-21', 'Noviembre', 2024, 3, 1),
+('2024-11-22', '2024-11-28', 'Noviembre', 2024, 4, 1);
+
+-- ============================================
+-- 6. ASIGNACIONES (30 asignaciones)
+-- ============================================
+
+INSERT INTO Asignaciones (id_empleado, placas, fecha_hora_salida, fecha_hora_regreso, foto_salida, estado)
+VALUES
+(1, 'ABC1234', '2024-11-22 08:00:00', '2024-11-22 18:00:00', '/foto1.jpg', 'cerrada'),
+(2, 'XYZ5678', '2024-11-22 08:30:00', '2024-11-22 18:30:00', '/foto2.jpg', 'cerrada'),
+(3, 'DEF9012', '2024-11-22 09:00:00', '2024-11-22 19:00:00', '/foto3.jpg', 'cerrada'),
+(6, 'GHI3456', '2024-11-22 08:15:00', '2024-11-22 18:15:00', '/foto4.jpg', 'cerrada'),
+(10, 'JKL7890', '2024-11-22 08:45:00', '2024-11-22 18:45:00', '/foto5.jpg', 'cerrada'),
+(1, 'ABC1234', '2024-11-23 08:00:00', '2024-11-23 18:00:00', '/foto6.jpg', 'cerrada'),
+(2, 'XYZ5678', '2024-11-23 08:30:00', '2024-11-23 18:30:00', '/foto7.jpg', 'cerrada'),
+(3, 'DEF9012', '2024-11-23 09:00:00', '2024-11-23 19:00:00', '/foto8.jpg', 'cerrada'),
+(6, 'GHI3456', '2024-11-23 08:15:00', '2024-11-23 18:15:00', '/foto9.jpg', 'cerrada'),
+(10, 'JKL7890', '2024-11-23 08:45:00', '2024-11-23 18:45:00', '/foto10.jpg', 'cerrada'),
+(1, 'ABC1234', '2024-11-24 08:00:00', '2024-11-24 18:00:00', '/foto11.jpg', 'cerrada'),
+(2, 'XYZ5678', '2024-11-24 08:30:00', '2024-11-24 18:30:00', '/foto12.jpg', 'cerrada'),
+(3, 'DEF9012', '2024-11-24 09:00:00', '2024-11-24 19:00:00', '/foto13.jpg', 'cerrada'),
+(6, 'GHI3456', '2024-11-24 08:15:00', '2024-11-24 18:15:00', '/foto14.jpg', 'cerrada'),
+(10, 'JKL7890', '2024-11-24 08:45:00', '2024-11-24 18:45:00', '/foto15.jpg', 'cerrada'),
+(1, 'MNO1234', '2024-11-25 08:00:00', '2024-11-25 18:00:00', '/foto16.jpg', 'cerrada'),
+(2, 'PQR5678', '2024-11-25 08:30:00', '2024-11-25 18:30:00', '/foto17.jpg', 'cerrada'),
+(3, 'STU9012', '2024-11-25 09:00:00', '2024-11-25 19:00:00', '/foto18.jpg', 'cerrada'),
+(6, 'VWX3456', '2024-11-25 08:15:00', '2024-11-25 18:15:00', '/foto19.jpg', 'cerrada'),
+(10, 'YZA7890', '2024-11-25 08:45:00', '2024-11-25 18:45:00', '/foto20.jpg', 'cerrada'),
+(1, 'ABC1234', '2024-11-26 08:00:00', '2024-11-26 18:00:00', '/foto21.jpg', 'cerrada'),
+(2, 'XYZ5678', '2024-11-26 08:30:00', '2024-11-26 18:30:00', '/foto22.jpg', 'cerrada'),
+(3, 'DEF9012', '2024-11-26 09:00:00', '2024-11-26 19:00:00', '/foto23.jpg', 'cerrada'),
+(6, 'GHI3456', '2024-11-26 08:15:00', '2024-11-26 18:15:00', '/foto24.jpg', 'cerrada'),
+(10, 'JKL7890', '2024-11-26 08:45:00', '2024-11-26 18:45:00', '/foto25.jpg', 'cerrada'),
+(1, 'MNO1234', '2024-11-27 08:00:00', '2024-11-27 18:00:00', '/foto26.jpg', 'cerrada'),
+(2, 'PQR5678', '2024-11-27 08:30:00', '2024-11-27 18:30:00', '/foto27.jpg', 'cerrada'),
+(3, 'STU9012', '2024-11-27 09:00:00', '2024-11-27 19:00:00', '/foto28.jpg', 'cerrada'),
+(6, 'VWX3456', '2024-11-27 08:15:00', '2024-11-27 18:15:00', '/foto29.jpg', 'cerrada'),
+(10, 'YZA7890', '2024-11-27 08:45:00', '2024-11-27 18:45:00', '/foto30.jpg', 'cerrada');
+
+-- ============================================
+-- 7. DETALLE DE ASIGNACIONES (60 detalles)
+-- ============================================
+
+INSERT INTO Detalle_Asignacion (id_asignacion, id_producto, cantidad_cargada, cantidad_vendida, cantidad_devuelta, precio_cargado)
+VALUES
+(1, 1, 10, 8, 2, 8500.00),
+(1, 2, 5, 4, 1, 6200.00),
+(1, 3, 4, 3, 1, 7500.00),
+(2, 4, 15, 12, 3, 1500.00),
+(2, 5, 20, 18, 2, 650.00),
+(2, 6, 10, 8, 2, 900.00),
+(3, 7, 25, 22, 3, 500.00),
+(3, 8, 8, 7, 1, 1400.00),
+(3, 9, 6, 5, 1, 5000.00),
+(4, 10, 12, 10, 2, 1200.00),
+(4, 11, 8, 6, 2, 2400.00),
+(4, 12, 5, 4, 1, 3200.00),
+(5, 13, 30, 28, 2, 400.00),
+(5, 14, 10, 9, 1, 1800.00),
+(5, 15, 6, 5, 1, 2200.00),
+(6, 1, 10, 9, 1, 8500.00),
+(6, 2, 5, 5, 0, 6200.00),
+(6, 3, 4, 4, 0, 7500.00),
+(7, 4, 15, 13, 2, 1500.00),
+(7, 5, 20, 19, 1, 650.00),
+(8, 6, 10, 9, 1, 900.00),
+(8, 7, 25, 23, 2, 500.00),
+(8, 8, 8, 8, 0, 1400.00),
+(9, 9, 6, 6, 0, 5000.00),
+(9, 10, 12, 11, 1, 1200.00),
+(10, 11, 8, 7, 1, 2400.00),
+(10, 12, 5, 5, 0, 3200.00),
+(11, 1, 10, 7, 3, 8500.00),
+(11, 2, 5, 3, 2, 6200.00),
+(11, 3, 4, 2, 2, 7500.00),
+(12, 4, 15, 11, 4, 1500.00),
+(12, 5, 20, 17, 3, 650.00),
+(13, 6, 10, 7, 3, 900.00),
+(13, 7, 25, 20, 5, 500.00),
+(13, 8, 8, 6, 2, 1400.00),
+(14, 9, 6, 4, 2, 5000.00),
+(14, 10, 12, 9, 3, 1200.00),
+(15, 11, 8, 5, 3, 2400.00),
+(15, 12, 5, 3, 2, 3200.00),
+(16, 13, 30, 27, 3, 400.00),
+(16, 14, 10, 8, 2, 1800.00),
+(16, 15, 6, 4, 2, 2200.00),
+(17, 1, 10, 8, 2, 8500.00),
+(17, 2, 5, 4, 1, 6200.00),
+(17, 3, 4, 3, 1, 7500.00),
+(18, 4, 15, 12, 3, 1500.00),
+(18, 5, 20, 18, 2, 650.00),
+(19, 6, 10, 8, 2, 900.00),
+(19, 7, 25, 22, 3, 500.00),
+(19, 8, 8, 7, 1, 1400.00),
+(20, 9, 6, 5, 1, 5000.00),
+(20, 10, 12, 10, 2, 1200.00),
+(21, 11, 8, 6, 2, 2400.00),
+(21, 12, 5, 4, 1, 3200.00),
+(22, 13, 30, 28, 2, 400.00),
+(22, 14, 10, 9, 1, 1800.00),
+(22, 15, 6, 5, 1, 2200.00),
+(23, 1, 10, 9, 1, 8500.00),
+(23, 2, 5, 5, 0, 6200.00),
+(23, 3, 4, 4, 0, 7500.00),
+(24, 4, 15, 13, 2, 1500.00);
+
+-- ============================================
+-- 8. FOLIOS DE VENTA (50 folios)
+-- ============================================
+
+INSERT INTO Folios_Venta (numero_folio, id_asignacion, nombre_cliente, zona, direccion, fecha_hora_venta, enganche, total_venta, saldo_pendiente, tipo_pago, estado)
+VALUES
+('FV-2024-001', 1, 'Cliente Prueba 1', 'XZ', 'Calle Test 100', '2024-11-22 10:30:00', 2000.00, 16700.00, 14700.00, 'credito', 'activo'),
+('FV-2024-002', 1, 'Cliente Prueba 2', 'XZ', 'Avenida Demo 200', '2024-11-22 11:45:00', 3500.00, 6200.00, 2700.00, 'credito', 'activo'),
+('FV-2024-003', 2, 'Cliente Prueba 3', 'WZ', 'Boulevard Test 300', '2024-11-22 14:20:00', 5000.00, 12000.00, 7000.00, 'contado', 'activo'),
+('FV-2024-004', 3, 'Cliente Prueba 4', 'VZ', 'Plaza Demo 400', '2024-11-22 15:00:00', 1000.00, 5400.00, 4400.00, 'credito', 'activo'),
+('FV-2024-005', 4, 'Cliente Prueba 5', 'KZ', 'Carrera Test 500', '2024-11-23 09:15:00', 2500.00, 9900.00, 7400.00, 'credito', 'activo'),
+('FV-2024-006', 5, 'Cliente Prueba 6', 'XZ', 'Calle Verde 600', '2024-11-23 10:30:00', 3000.00, 13500.00, 10500.00, 'credito', 'activo'),
+('FV-2024-007', 6, 'Cliente Prueba 7', 'WZ', 'Avenida Azul 700', '2024-11-23 11:45:00', 2000.00, 8500.00, 6500.00, 'contado', 'activo'),
+('FV-2024-008', 7, 'Cliente Prueba 8', 'VZ', 'Boulevard Rojo 800', '2024-11-23 14:00:00', 1500.00, 6200.00, 4700.00, 'credito', 'activo'),
+('FV-2024-009', 8, 'Cliente Prueba 9', 'XZ', 'Plaza Amarillo 900', '2024-11-24 09:30:00', 3500.00, 15000.00, 11500.00, 'credito', 'activo'),
+('FV-2024-010', 9, 'Cliente Prueba 10', 'KZ', 'Calle Blanco 1000', '2024-11-24 10:45:00', 2500.00, 12000.00, 9500.00, 'contado', 'activo'),
+('FV-2024-011', 10, 'Cliente Prueba 11', 'WZ', 'Avenida Negro 1100', '2024-11-24 13:15:00', 1000.00, 4200.00, 3200.00, 'credito', 'activo'),
+('FV-2024-012', 11, 'Cliente Prueba 12', 'VZ', 'Boulevard Gris 1200', '2024-11-24 14:30:00', 2000.00, 7500.00, 5500.00, 'credito', 'activo'),
+('FV-2024-013', 12, 'Cliente Prueba 13', 'XZ', 'Plaza Rosa 1300', '2024-11-25 09:00:00', 3000.00, 11000.00, 8000.00, 'contado', 'activo'),
+('FV-2024-014', 13, 'Cliente Prueba 14', 'KZ', 'Calle Naranja 1400', '2024-11-25 10:30:00', 1500.00, 5800.00, 4300.00, 'credito', 'activo'),
+('FV-2024-015', 14, 'Cliente Prueba 15', 'WZ', 'Avenida Violeta 1500', '2024-11-25 12:00:00', 2500.00, 9500.00, 7000.00, 'credito', 'activo'),
+('FV-2024-016', 15, 'Cliente Prueba 16', 'VZ', 'Boulevard Marrón 1600', '2024-11-25 14:15:00', 1000.00, 6500.00, 5500.00, 'contado', 'activo'),
+('FV-2024-017', 16, 'Cliente Prueba 17', 'XZ', 'Plaza Cyan 1700', '2024-11-26 09:30:00', 3500.00, 13000.00, 9500.00, 'credito', 'activo'),
+('FV-2024-018', 17, 'Cliente Prueba 18', 'KZ', 'Calle Magenta 1800', '2024-11-26 10:45:00', 2000.00, 8000.00, 6000.00, 'credito', 'activo'),
+('FV-2024-019', 18, 'Cliente Prueba 19', 'WZ', 'Avenida Turquesa 1900', '2024-11-26 13:00:00', 1500.00, 5500.00, 4000.00, 'contado', 'activo'),
+('FV-2024-020', 19, 'Cliente Prueba 20', 'VZ', 'Boulevard Coral 2000', '2024-11-26 14:30:00', 2500.00, 10000.00, 7500.00, 'credito', 'activo'),
+('FV-2024-021', 20, 'Cliente Prueba 21', 'XZ', 'Plaza Teal 2100', '2024-11-27 09:00:00', 3000.00, 12500.00, 9500.00, 'contado', 'activo'),
+('FV-2024-022', 21, 'Cliente Prueba 22', 'KZ', 'Calle Índigo 2200', '2024-11-27 10:30:00', 1000.00, 4500.00, 3500.00, 'credito', 'activo'),
+('FV-2024-023', 22, 'Cliente Prueba 23', 'WZ', 'Avenida Khaki 2300', '2024-11-27 12:00:00', 2500.00, 9000.00, 6500.00, 'credito', 'activo'),
+('FV-2024-024', 23, 'Cliente Prueba 24', 'VZ', 'Boulevard Marfil 2400', '2024-11-27 14:15:00', 1500.00, 7000.00, 5500.00, 'contado', 'activo'),
+('FV-2024-025', 24, 'Cliente Prueba 25', 'XZ', 'Plaza Crema 2500', '2024-11-27 15:45:00', 2000.00, 8500.00, 6500.00, 'credito', 'activo'),
+('FV-2024-026', 25, 'Cliente CANCELADO 1', 'WZ', 'Calle Cancelada 3000', '2024-11-22 10:00:00', 1500.00, 5000.00, 3500.00, 'credito', 'cancelado'),
+('FV-2024-027', 26, 'Cliente CANCELADO 2', 'VZ', 'Avenida Cancelada 3100', '2024-11-23 11:00:00', 2000.00, 6500.00, 4500.00, 'credito', 'cancelado'),
+('FV-2024-028', 27, 'Cliente CANCELADO 3', 'XZ', 'Boulevard Cancelado 3200', '2024-11-24 12:00:00', 1000.00, 4000.00, 3000.00, 'contado', 'cancelado'),
+('FV-2024-029', 28, 'Cliente CANCELADO 4', 'KZ', 'Plaza Cancelada 3300', '2024-11-25 13:00:00', 3000.00, 10000.00, 7000.00, 'credito', 'cancelado'),
+('FV-2024-030', 29, 'Cliente CANCELADO 5', 'WZ', 'Calle Cancelada 3400', '2024-11-26 14:00:00', 2500.00, 8000.00, 5500.00, 'credito', 'cancelado'),
+('FV-2024-031', 1, 'Cliente Prueba 31', 'XZ', 'Avenida Nueva 3500', '2024-11-22 12:00:00', 2000.00, 7500.00, 5500.00, 'contado', 'activo'),
+('FV-2024-032', 2, 'Cliente Prueba 32', 'WZ', 'Boulevard Nuevo 3600', '2024-11-22 13:30:00', 1500.00, 6000.00, 4500.00, 'credito', 'activo'),
+('FV-2024-033', 3, 'Cliente Prueba 33', 'VZ', 'Plaza Nueva 3700', '2024-11-23 14:45:00', 3000.00, 11000.00, 8000.00, 'credito', 'activo'),
+('FV-2024-034', 4, 'Cliente Prueba 34', 'XZ', 'Calle Moderna 3800', '2024-11-23 15:00:00', 2500.00, 9500.00, 7000.00, 'contado', 'activo'),
+('FV-2024-035', 5, 'Cliente Prueba 35', 'KZ', 'Avenida Moderna 3900', '2024-11-24 10:00:00', 1000.00, 3500.00, 2500.00, 'credito', 'activo'),
+('FV-2024-036', 6, 'Cliente Prueba 36', 'WZ', 'Boulevard Moderno 4000', '2024-11-24 11:30:00', 2500.00, 10000.00, 7500.00, 'credito', 'activo'),
+('FV-2024-037', 7, 'Cliente Prueba 37', 'VZ', 'Plaza Moderno 4100', '2024-11-25 12:45:00', 3000.00, 12000.00, 9000.00, 'contado', 'activo'),
+('FV-2024-038', 8, 'Cliente Prueba 38', 'XZ', 'Calle Contemporáneo 4200', '2024-11-25 14:00:00', 1500.00, 5500.00, 4000.00, 'credito', 'activo'),
+('FV-2024-039', 9, 'Cliente Prueba 39', 'KZ', 'Avenida Contemporáneo 4300', '2024-11-26 15:30:00', 2000.00, 8500.00, 6500.00, 'credito', 'activo'),
+('FV-2024-040', 10, 'Cliente Prueba 40', 'WZ', 'Boulevard Antiguo 4400', '2024-11-26 16:45:00', 1000.00, 4200.00, 3200.00, 'contado', 'activo'),
+('FV-2024-041', 11, 'Cliente Prueba 41', 'VZ', 'Plaza Antigua 4500', '2024-11-27 09:15:00', 3500.00, 14000.00, 10500.00, 'credito', 'activo'),
+('FV-2024-042', 12, 'Cliente Prueba 42', 'XZ', 'Calle Histórica 4600', '2024-11-27 10:30:00', 2500.00, 9500.00, 7000.00, 'credito', 'activo'),
+('FV-2024-043', 13, 'Cliente Prueba 43', 'KZ', 'Avenida Histórica 4700', '2024-11-27 12:00:00', 1500.00, 6000.00, 4500.00, 'contado', 'activo'),
+('FV-2024-044', 14, 'Cliente Prueba 44', 'WZ', 'Boulevard Futuro 4800', '2024-11-27 13:15:00', 2000.00, 7500.00, 5500.00, 'credito', 'activo'),
+('FV-2024-045', 15, 'Cliente Prueba 45', 'VZ', 'Plaza Futura 4900', '2024-11-27 14:45:00', 1000.00, 3800.00, 2800.00, 'credito', 'activo'),
+('FV-2024-046', 16, 'Cliente CANCELADO 6', 'XZ', 'Calle Anulada 5000', '2024-11-24 10:30:00', 2000.00, 6500.00, 4500.00, 'contado', 'cancelado'),
+('FV-2024-047', 17, 'Cliente CANCELADO 7', 'KZ', 'Avenida Anulada 5100', '2024-11-25 11:45:00', 3000.00, 9000.00, 6000.00, 'credito', 'cancelado'),
+('FV-2024-048', 18, 'Cliente CANCELADO 8', 'WZ', 'Boulevard Nulo 5200', '2024-11-26 12:00:00', 1500.00, 5500.00, 4000.00, 'credito', 'cancelado'),
+('FV-2024-049', 19, 'Cliente CANCELADO 9', 'VZ', 'Plaza Nula 5300', '2024-11-27 13:30:00', 2500.00, 8000.00, 5500.00, 'contado', 'cancelado'),
+('FV-2024-050', 20, 'Cliente CANCELADO 10', 'XZ', 'Calle Vacía 5400', '2024-11-27 14:45:00', 1000.00, 4000.00, 3000.00, 'credito', 'cancelado');
+
+-- ============================================
+-- 9. DETALLE DE FOLIOS DE VENTA (100 detalles)
+-- ============================================
+
+INSERT INTO Detalle_Folio_Venta (id_folio, id_producto, cantidad_vendida, precio_unitario, subtotal, porcentaje_comision, monto_comision, comision_cancelada)
+VALUES
+(1, 1, 2, 8500.00, 17000.00, 5.0, 850.00, 0),
+(1, 3, 1, 7500.00, 7500.00, 5.0, 375.00, 0),
+(2, 2, 1, 6200.00, 6200.00, 5.0, 310.00, 0),
+(3, 4, 8, 1500.00, 12000.00, 4.0, 480.00, 0),
+(3, 5, 4, 650.00, 2600.00, 4.0, 104.00, 0),
+(4, 6, 6, 900.00, 5400.00, 4.0, 216.00, 0),
+(5, 1, 1, 8500.00, 8500.00, 5.0, 425.00, 0),
+(5, 8, 2, 1400.00, 2800.00, 3.0, 84.00, 0),
+(6, 1, 2, 8500.00, 17000.00, 5.0, 850.00, 0),
+(6, 2, 1, 6200.00, 6200.00, 5.0, 310.00, 0),
+(6, 3, 1, 7500.00, 7500.00, 5.0, 375.00, 0),
+(7, 4, 10, 1500.00, 15000.00, 4.0, 600.00, 0),
+(7, 5, 2, 650.00, 1300.00, 4.0, 52.00, 0),
+(8, 2, 1, 6200.00, 6200.00, 5.0, 310.00, 0),
+(9, 1, 3, 8500.00, 25500.00, 5.0, 1275.00, 0),
+(9, 9, 1, 5000.00, 5000.00, 5.0, 250.00, 0),
+(10, 4, 8, 1500.00, 12000.00, 4.0, 480.00, 0),
+(10, 8, 1, 1400.00, 1400.00, 3.0, 42.00, 0),
+(11, 5, 3, 650.00, 1950.00, 4.0, 78.00, 0),
+(11, 6, 1, 900.00, 900.00, 4.0, 36.00, 0),
+(12, 3, 1, 7500.00, 7500.00, 5.0, 375.00, 0),
+(13, 1, 1, 8500.00, 8500.00, 5.0, 425.00, 0),
+(13, 2, 1, 6200.00, 6200.00, 5.0, 310.00, 0),
+(13, 7, 5, 500.00, 2500.00, 4.0, 100.00, 0),
+(14, 4, 4, 1500.00, 6000.00, 4.0, 240.00, 0),
+(15, 1, 1, 8500.00, 8500.00, 5.0, 425.00, 0),
+(15, 5, 2, 650.00, 1300.00, 4.0, 52.00, 0),
+(15, 8, 1, 1400.00, 1400.00, 3.0, 42.00, 0),
+(16, 6, 5, 900.00, 4500.00, 4.0, 180.00, 0),
+(16, 7, 2, 500.00, 1000.00, 4.0, 40.00, 0),
+(17, 2, 2, 6200.00, 12400.00, 5.0, 620.00, 0),
+(17, 9, 1, 5000.00, 5000.00, 5.0, 250.00, 0),
+(18, 1, 1, 8500.00, 8500.00, 5.0, 425.00, 0),
+(18, 4, 2, 1500.00, 3000.00, 4.0, 120.00, 0),
+(19, 5, 1, 650.00, 650.00, 4.0, 26.00, 0),
+(19, 3, 1, 7500.00, 7500.00, 5.0, 375.00, 0),
+(20, 8, 3, 1400.00, 4200.00, 3.0, 126.00, 0),
+(20, 7, 2, 500.00, 1000.00, 4.0, 40.00, 0),
+(21, 1, 2, 8500.00, 17000.00, 5.0, 850.00, 0),
+(21, 2, 1, 6200.00, 6200.00, 5.0, 310.00, 0),
+(21, 6, 2, 900.00, 1800.00, 4.0, 72.00, 0),
+(22, 4, 3, 1500.00, 4500.00, 4.0, 180.00, 0),
+(22, 5, 4, 650.00, 2600.00, 4.0, 104.00, 0),
+(23, 3, 1, 7500.00, 7500.00, 5.0, 375.00, 0),
+(24, 9, 1, 5000.00, 5000.00, 5.0, 250.00, 0),
+(25, 1, 1, 8500.00, 8500.00, 5.0, 425.00, 0),
+(26, 2, 1, 6200.00, 6200.00, 5.0, 310.00, 1),
+(27, 4, 2, 1500.00, 3000.00, 4.0, 120.00, 1),
+(28, 1, 1, 8500.00, 8500.00, 5.0, 425.00, 1),
+(29, 5, 2, 650.00, 1300.00, 4.0, 52.00, 1),
+(30, 3, 1, 7500.00, 7500.00, 5.0, 375.00, 1),
+(31, 6, 4, 900.00, 3600.00, 4.0, 144.00, 0),
+(32, 8, 2, 1400.00, 2800.00, 3.0, 84.00, 0),
+(33, 1, 2, 8500.00, 17000.00, 5.0, 850.00, 0),
+(33, 7, 2, 500.00, 1000.00, 4.0, 40.00, 0),
+(34, 4, 6, 1500.00, 9000.00, 4.0, 360.00, 0),
+(34, 5, 1, 650.00, 650.00, 4.0, 26.00, 0),
+(35, 2, 1, 6200.00, 6200.00, 5.0, 310.00, 0),
+(36, 1, 1, 8500.00, 8500.00, 5.0, 425.00, 0),
+(36, 9, 1, 5000.00, 5000.00, 5.0, 250.00, 0),
+(37, 6, 3, 900.00, 2700.00, 4.0, 108.00, 0),
+(37, 8, 2, 1400.00, 2800.00, 3.0, 84.00, 0),
+(38, 3, 1, 7500.00, 7500.00, 5.0, 375.00, 0),
+(38, 4, 1, 1500.00, 1500.00, 4.0, 60.00, 0),
+(39, 5, 3, 650.00, 1950.00, 4.0, 78.00, 0),
+(39, 7, 1, 500.00, 500.00, 4.0, 20.00, 0),
+(40, 2, 1, 6200.00, 6200.00, 5.0, 310.00, 0),
+(41, 1, 2, 8500.00, 17000.00, 5.0, 850.00, 0),
+(41, 3, 1, 7500.00, 7500.00, 5.0, 375.00, 0),
+(42, 4, 3, 1500.00, 4500.00, 4.0, 180.00, 0),
+(42, 8, 2, 1400.00, 2800.00, 3.0, 84.00, 0),
+(43, 6, 2, 900.00, 1800.00, 4.0, 72.00, 0),
+(43, 5, 1, 650.00, 650.00, 4.0, 26.00, 0),
+(44, 1, 1, 8500.00, 8500.00, 5.0, 425.00, 0),
+(44, 9, 1, 5000.00, 5000.00, 5.0, 250.00, 0),
+(45, 7, 4, 500.00, 2000.00, 4.0, 80.00, 0),
+(46, 2, 1, 6200.00, 6200.00, 5.0, 310.00, 1),
+(47, 4, 2, 1500.00, 3000.00, 4.0, 120.00, 1),
+(48, 1, 1, 8500.00, 8500.00, 5.0, 425.00, 1),
+(49, 5, 2, 650.00, 1300.00, 4.0, 52.00, 1),
+(50, 3, 1, 7500.00, 7500.00, 5.0, 375.00, 1);
+
+-- ============================================
+-- 10. DESGLOSE DE ENGANCHES
+-- ============================================
+
+INSERT INTO Desglose_Enganche (id_folio, numero_folio, monto, metodo_pago, concepto, registrado_por)
+VALUES
+(1, 'FV-2024-001', 2000.00, 'efectivo', 'Enganche inicial', 'admin'),
+(2, 'FV-2024-002', 3500.00, 'transferencia', 'Enganche inicial', 'admin'),
+(3, 'FV-2024-003', 5000.00, 'efectivo', 'Enganche inicial', 'admin'),
+(4, 'FV-2024-004', 1000.00, 'tarjeta', 'Enganche inicial', 'admin'),
+(5, 'FV-2024-005', 2500.00, 'efectivo', 'Enganche inicial', 'admin'),
+(6, 'FV-2024-006', 3000.00, 'transferencia', 'Enganche inicial', 'admin'),
+(7, 'FV-2024-007', 2000.00, 'efectivo', 'Enganche inicial', 'admin'),
+(8, 'FV-2024-008', 1500.00, 'tarjeta', 'Enganche inicial', 'admin'),
+(9, 'FV-2024-009', 3500.00, 'efectivo', 'Enganche inicial', 'admin'),
+(10, 'FV-2024-010', 2500.00, 'transferencia', 'Enganche inicial', 'admin'),
+(11, 'FV-2024-011', 1000.00, 'efectivo', 'Enganche inicial', 'admin'),
+(12, 'FV-2024-012', 2000.00, 'tarjeta', 'Enganche inicial', 'admin'),
+(13, 'FV-2024-013', 3000.00, 'efectivo', 'Enganche inicial', 'admin'),
+(14, 'FV-2024-014', 1500.00, 'transferencia', 'Enganche inicial', 'admin'),
+(15, 'FV-2024-015', 2500.00, 'efectivo', 'Enganche inicial', 'admin'),
+(16, 'FV-2024-016', 1000.00, 'tarjeta', 'Enganche inicial', 'admin'),
+(17, 'FV-2024-017', 3500.00, 'efectivo', 'Enganche inicial', 'admin'),
+(18, 'FV-2024-018', 2000.00, 'transferencia', 'Enganche inicial', 'admin'),
+(19, 'FV-2024-019', 1500.00, 'efectivo', 'Enganche inicial', 'admin'),
+(20, 'FV-2024-020', 2500.00, 'tarjeta', 'Enganche inicial', 'admin'),
+(21, 'FV-2024-021', 3000.00, 'efectivo', 'Enganche inicial', 'admin'),
+(22, 'FV-2024-022', 1000.00, 'transferencia', 'Enganche inicial', 'admin'),
+(23, 'FV-2024-023', 2500.00, 'efectivo', 'Enganche inicial', 'admin'),
+(24, 'FV-2024-024', 1500.00, 'tarjeta', 'Enganche inicial', 'admin'),
+(25, 'FV-2024-025', 2000.00, 'efectivo', 'Enganche inicial', 'admin'),
+(26, 'FV-2024-026', 1500.00, 'efectivo', 'Enganche inicial', 'admin'),
+(27, 'FV-2024-027', 2000.00, 'transferencia', 'Enganche inicial', 'admin'),
+(28, 'FV-2024-028', 1000.00, 'efectivo', 'Enganche inicial', 'admin'),
+(29, 'FV-2024-029', 3000.00, 'tarjeta', 'Enganche inicial', 'admin'),
+(30, 'FV-2024-030', 2500.00, 'efectivo', 'Enganche inicial', 'admin'),
+(31, 'FV-2024-031', 2000.00, 'transferencia', 'Enganche inicial', 'admin'),
+(32, 'FV-2024-032', 1500.00, 'efectivo', 'Enganche inicial', 'admin'),
+(33, 'FV-2024-033', 3000.00, 'tarjeta', 'Enganche inicial', 'admin'),
+(34, 'FV-2024-034', 2500.00, 'efectivo', 'Enganche inicial', 'admin'),
+(35, 'FV-2024-035', 1000.00, 'transferencia', 'Enganche inicial', 'admin'),
+(36, 'FV-2024-036', 2500.00, 'efectivo', 'Enganche inicial', 'admin'),
+(37, 'FV-2024-037', 3000.00, 'tarjeta', 'Enganche inicial', 'admin'),
+(38, 'FV-2024-038', 1500.00, 'efectivo', 'Enganche inicial', 'admin'),
+(39, 'FV-2024-039', 2000.00, 'transferencia', 'Enganche inicial', 'admin'),
+(40, 'FV-2024-040', 1000.00, 'efectivo', 'Enganche inicial', 'admin'),
+(41, 'FV-2024-041', 3500.00, 'tarjeta', 'Enganche inicial', 'admin'),
+(42, 'FV-2024-042', 2500.00, 'efectivo', 'Enganche inicial', 'admin'),
+(43, 'FV-2024-043', 1500.00, 'transferencia', 'Enganche inicial', 'admin'),
+(44, 'FV-2024-044', 2000.00, 'efectivo', 'Enganche inicial', 'admin'),
+(45, 'FV-2024-045', 1000.00, 'tarjeta', 'Enganche inicial', 'admin'),
+(46, 'FV-2024-046', 2000.00, 'efectivo', 'Enganche inicial', 'admin'),
+(47, 'FV-2024-047', 3000.00, 'transferencia', 'Enganche inicial', 'admin'),
+(48, 'FV-2024-048', 1500.00, 'efectivo', 'Enganche inicial', 'admin'),
+(49, 'FV-2024-049', 2500.00, 'tarjeta', 'Enganche inicial', 'admin'),
+(50, 'FV-2024-050', 1000.00, 'efectivo', 'Enganche inicial', 'admin');
+
+-- ============================================
+-- 11. COMISIONES POR ASIGNACIÓN (30 comisiones)
+-- ============================================
+
+INSERT INTO Comisiones_Asignacion (id_asignacion, id_empleado, total_vendido, total_comision, estado)
+VALUES
+(1, 1, 24500.00, 1225.00, 'pagada'),
+(2, 2, 14600.00, 584.00, 'pagada'),
+(3, 3, 8100.00, 381.00, 'pendiente'),
+(4, 6, 7200.00, 252.00, 'pendiente'),
+(5, 10, 6200.00, 155.00, 'pendiente'),
+(6, 1, 30700.00, 1535.00, 'pagada'),
+(7, 2, 16300.00, 652.00, 'pagada'),
+(8, 3, 6200.00, 310.00, 'pendiente'),
+(9, 6, 30000.00, 1525.00, 'pendiente'),
+(10, 10, 13400.00, 522.00, 'pendiente'),
+(11, 1, 18400.00, 920.00, 'pagada'),
+(12, 2, 8600.00, 344.00, 'pagada'),
+(13, 3, 10800.00, 540.00, 'pendiente'),
+(14, 6, 9950.00, 397.50, 'pendiente'),
+(15, 10, 11400.00, 519.00, 'pendiente'),
+(16, 1, 22100.00, 1105.00, 'pagada'),
+(17, 2, 17400.00, 870.00, 'pagada'),
+(18, 3, 9500.00, 475.00, 'pendiente'),
+(19, 6, 8150.00, 407.50, 'pendiente'),
+(20, 10, 5200.00, 208.00, 'pendiente'),
+(21, 1, 26000.00, 1300.00, 'pagada'),
+(22, 2, 7100.00, 284.00, 'pagada'),
+(23, 3, 9150.00, 458.00, 'pendiente'),
+(24, 6, 1500.00, 60.00, 'pendiente'),
+(25, 10, 8500.00, 425.00, 'pendiente'),
+(26, 1, 6200.00, 310.00, 'pagada'),
+(27, 2, 3000.00, 120.00, 'pagada'),
+(28, 3, 8500.00, 425.00, 'pendiente'),
+(29, 6, 1300.00, 52.00, 'pendiente'),
+(30, 10, 7500.00, 375.00, 'pendiente');
+
+-- ============================================
+-- 12. COBROS DIARIOS (50 cobros)
+-- ============================================
+
+INSERT INTO Cobros_Diarios (id_empleado, fecha, monto_cobrado, clientes_visitados, registrado_por)
+VALUES
+(4, '2024-11-01', 3500.00, 5, 'admin'),
+(4, '2024-11-02', 2800.00, 4, 'admin'),
+(4, '2024-11-03', 4200.00, 6, 'admin'),
+(4, '2024-11-04', 1800.00, 3, 'admin'),
+(4, '2024-11-05', 3000.00, 4, 'admin'),
+(5, '2024-11-01', 2500.00, 3, 'admin'),
+(5, '2024-11-02', 3200.00, 4, 'admin'),
+(5, '2024-11-03', 2100.00, 3, 'admin'),
+(5, '2024-11-04', 3800.00, 5, 'admin'),
+(5, '2024-11-05', 2400.00, 3, 'admin'),
+(7, '2024-11-01', 4100.00, 5, 'admin'),
+(7, '2024-11-02', 2900.00, 4, 'admin'),
+(7, '2024-11-03', 3300.00, 4, 'admin'),
+(7, '2024-11-04', 2800.00, 3, 'admin'),
+(7, '2024-11-05', 4500.00, 6, 'admin'),
+(9, '2024-11-01', 3000.00, 4, 'admin'),
+(9, '2024-11-02', 2700.00, 3, 'admin'),
+(9, '2024-11-03', 3500.00, 5, 'admin'),
+(9, '2024-11-04', 3200.00, 4, 'admin'),
+(9, '2024-11-05', 2600.00, 3, 'admin'),
+(11, '2024-11-01', 2200.00, 3, 'admin'),
+(11, '2024-11-02', 2800.00, 4, 'admin'),
+(11, '2024-11-03', 1900.00, 2, 'admin'),
+(11, '2024-11-04', 3100.00, 4, 'admin'),
+(11, '2024-11-05', 2500.00, 3, 'admin'),
+(13, '2024-11-01', 3800.00, 5, 'admin'),
+(13, '2024-11-02', 3200.00, 4, 'admin'),
+(13, '2024-11-03', 2600.00, 3, 'admin'),
+(13, '2024-11-04', 3400.00, 4, 'admin'),
+(13, '2024-11-05', 3100.00, 4, 'admin'),
+(4, '2024-11-06', 2500.00, 3, 'admin'),
+(5, '2024-11-06', 3600.00, 5, 'admin'),
+(7, '2024-11-06', 2800.00, 4, 'admin'),
+(9, '2024-11-06', 3200.00, 4, 'admin'),
+(11, '2024-11-06', 2100.00, 3, 'admin'),
+(13, '2024-11-06', 3500.00, 5, 'admin'),
+(4, '2024-11-08', 4000.00, 5, 'admin'),
+(5, '2024-11-08', 2700.00, 3, 'admin'),
+(7, '2024-11-08', 3500.00, 4, 'admin'),
+(9, '2024-11-08', 2900.00, 3, 'admin'),
+(11, '2024-11-08', 3200.00, 4, 'admin'),
+(13, '2024-11-08', 2800.00, 3, 'admin'),
+(4, '2024-11-09', 3100.00, 4, 'admin'),
+(5, '2024-11-09', 3500.00, 5, 'admin'),
+(7, '2024-11-09', 2400.00, 3, 'admin'),
+(9, '2024-11-09', 3700.00, 5, 'admin'),
+(11, '2024-11-09', 2900.00, 4, 'admin'),
+(13, '2024-11-09', 3400.00, 4, 'admin'),
+(4, '2024-11-10', 2800.00, 4, 'admin'),
+(5, '2024-11-10', 3200.00, 4, 'admin');
+
+-- ============================================
+-- 13. COMISIONES DE COBRADORES (20 comisiones)
+-- ============================================
+
+INSERT INTO Comisiones_Cobradores (id_empleado, id_semana, zona, total_cobros, comision_cobro, total_gasolina, prestamo, total_comision, estado)
+VALUES
+(4, 7, 'XZ', 16300.00, 1630.00, 200.00, 500.00, 1330.00, 'pagada'),
+(5, 7, 'WZ', 15400.00, 1540.00, 180.00, 400.00, 1320.00, 'pagada'),
+(7, 7, 'VZ', 17600.00, 1760.00, 220.00, 600.00, 1380.00, 'pagada'),
+(9, 7, 'YZ', 15000.00, 1500.00, 200.00, 500.00, 1200.00, 'pagada'),
+(11, 7, 'RZ', 14200.00, 1420.00, 150.00, 300.00, 1270.00, 'pagada'),
+(13, 7, 'KZ', 16800.00, 1680.00, 180.00, 400.00, 1460.00, 'pagada'),
+(4, 8, 'XZ', 13100.00, 1310.00, 180.00, 300.00, 1190.00, 'pendiente'),
+(5, 8, 'WZ', 12500.00, 1250.00, 150.00, 250.00, 1150.00, 'pendiente'),
+(7, 8, 'VZ', 12000.00, 1200.00, 160.00, 400.00, 960.00, 'pendiente'),
+(9, 8, 'YZ', 13200.00, 1320.00, 170.00, 350.00, 1140.00, 'pendiente'),
+(11, 8, 'RZ', 11800.00, 1180.00, 140.00, 200.00, 1120.00, 'pendiente'),
+(13, 8, 'KZ', 12900.00, 1290.00, 150.00, 300.00, 1140.00, 'pendiente'),
+(4, 6, 'XZ', 15800.00, 1580.00, 210.00, 450.00, 1340.00, 'revisada'),
+(5, 6, 'WZ', 14500.00, 1450.00, 170.00, 350.00, 1270.00, 'revisada'),
+(7, 6, 'VZ', 16200.00, 1620.00, 190.00, 500.00, 1310.00, 'revisada'),
+(9, 6, 'YZ', 14800.00, 1480.00, 180.00, 400.00, 1260.00, 'revisada'),
+(11, 6, 'RZ', 13500.00, 1350.00, 160.00, 300.00, 1210.00, 'revisada'),
+(13, 6, 'KZ', 15600.00, 1560.00, 200.00, 450.00, 1310.00, 'revisada'),
+(4, 5, 'XZ', 16000.00, 1600.00, 220.00, 500.00, 1320.00, 'pagada'),
+(5, 5, 'WZ', 15200.00, 1520.00, 190.00, 400.00, 1310.00, 'pagada');
+
+-- ============================================
+-- 14. CANCELACIONES DE FOLIOS (10 cancelaciones)
+-- ============================================
+
+INSERT INTO Cancelaciones_Folios (id_folio, motivo, observaciones, enganche_devuelto, monto_comision_cancelada, descontar_comision, fecha_cancelacion, usuario_cancela)
+VALUES
+(26, 'morosidad_tardia', 'Cliente cambió de opinión', 1, 310.00, 1, '2024-11-22 15:00:00', 1),
+(27, 'morosidad_tardia', 'No se pudo entregar en la dirección', 1, 120.00, 1, '2024-11-23 16:30:00', 1),
+(28, 'morosidad_inmediata', 'Razones personales', 0, 425.00, 1, '2024-11-24 12:00:00', 1),
+(29, 'situacion_extraordinaria', 'Cliente quiere otro modelo', 1, 52.00, 0, '2024-11-25 14:00:00', 1),
+(30, 'morosidad_tardia', 'Cliente no tiene dinero en este momento', 1, 375.00, 1, '2024-11-26 10:30:00', 1),
+(46, 'morosidad_inmediata', 'Error en la documentación', 1, 310.00, 1, '2024-11-24 13:00:00', 1),
+(47, 'situacion_extraordinaria', 'Se mudó a otra ciudad', 0, 120.00, 1, '2024-11-25 15:30:00', 1),
+(48, 'morosidad_tardia', 'Llegó dañado', 1, 425.00, 1, '2024-11-26 11:00:00', 1),
+(49, 'otro', 'No le gustó el producto', 1, 52.00, 0, '2024-11-27 12:00:00', 1),
+(50, 'morosidad_inmediata', 'Vencimiento de plazo', 0, 375.00, 1, '2024-11-27 14:30:00', 1);
+
+-- ============================================
+-- 15. CATEGORÍAS DE GASTOS
+-- ============================================
+
+INSERT OR IGNORE INTO Categorias_Gastos (nombre_categoria, descripcion, estado, creado_por)
+VALUES
+('Papelería', 'Material de oficina y papelería', 'activo', 'admin'),
+('Transporte', 'Gastos de transporte y combustible', 'activo', 'admin'),
+('Servicios', 'Servicios de luz, agua, internet, etc.', 'activo', 'admin'),
+('Mantenimiento', 'Reparaciones y mantenimiento', 'activo', 'admin'),
+('Alimentación', 'Comidas y bebidas', 'activo', 'admin'),
+('Otros', 'Gastos diversos', 'activo', 'admin');
+
+-- ============================================
+-- 16. GASTOS (30 gastos)
+-- ============================================
+
+INSERT INTO Gastos (fecha_gasto, id_categoria, descripcion, articulo_servicio, cantidad, total_gasto, registrado_por)
+VALUES
+('2024-11-22', 1, 'Papelería semanal', 'Papel, bolígrafos, archivadores', 1, 850.00, 'admin'),
+('2024-11-22', 2, 'Combustible vehículos', 'Gasolina magna', 120, 2400.00, 'admin'),
+('2024-11-23', 3, 'Servicios mensuales', 'Luz y agua', 1, 1500.00, 'admin'),
+('2024-11-24', 4, 'Mantenimiento vehículos', 'Cambio de aceite y filtros', 2, 1200.00, 'admin'),
+('2024-11-25', 5, 'Almuerzo de equipo', 'Comida para 10 personas', 10, 750.00, 'admin'),
+('2024-11-26', 2, 'Gasolina extra', 'Combustible adicional', 80, 1600.00, 'admin'),
+('2024-11-26', 1, 'Suministros oficina', 'Tóner impresora, papel', 1, 600.00, 'admin'),
+('2024-11-27', 4, 'Reparación aire acondicionado', 'Mantenimiento AC', 1, 2000.00, 'admin'),
+('2024-11-27', 5, 'Comida rápida vendedores', 'Comidas', 8, 400.00, 'admin'),
+('2024-11-28', 3, 'Internet mensual', 'Servicio de internet', 1, 500.00, 'admin'),
+('2024-11-28', 2, 'Gasolina', 'Combustible', 100, 2000.00, 'admin'),
+('2024-11-29', 1, 'Carpetas y folders', 'Organización documentos', 1, 450.00, 'admin'),
+('2024-11-29', 4, 'Limpieza oficina', 'Servicio de limpieza', 1, 800.00, 'admin'),
+('2024-11-30', 5, 'Café y snacks', 'Bebidas y alimentos', 1, 300.00, 'admin'),
+('2024-11-30', 6, 'Diversos', 'Gastos misceláneos', 1, 500.00, 'admin'),
+('2024-11-22', 2, 'Gasolina regional', 'Combustible zona XZ', 150, 3000.00, 'admin'),
+('2024-11-23', 1, 'Impresiones', 'Facturas y reportes', 1, 700.00, 'admin'),
+('2024-11-24', 5, 'Refrigerio vendedores', 'Bebidas', 1, 250.00, 'admin'),
+('2024-11-25', 3, 'Teléfono', 'Servicio telefónico', 1, 400.00, 'admin'),
+('2024-11-26', 4, 'Reparación puerta', 'Mantenimiento instalaciones', 1, 1500.00, 'admin'),
+('2024-11-27', 2, 'Gasolina extra diaria', 'Combustible', 120, 2400.00, 'admin'),
+('2024-11-28', 1, 'Cuadernos reportes', 'Material administrativo', 1, 350.00, 'admin'),
+('2024-11-29', 5, 'Lunch equipo', 'Alimentos', 1, 600.00, 'admin'),
+('2024-11-30', 6, 'Otros gastos', 'Imprevistos', 1, 450.00, 'admin'),
+('2024-11-22', 3, 'Electricidad', 'Servicio eléctrico', 1, 1200.00, 'admin'),
+('2024-11-23', 2, 'Gasolina taxis', 'Combustible taxis', 80, 1600.00, 'admin'),
+('2024-11-24', 1, 'Copias documentos', 'Fotocopias', 1, 200.00, 'admin'),
+('2024-11-25', 5, 'Comida ejecutivos', 'Almuerzo de negocios', 4, 800.00, 'admin'),
+('2024-11-26', 4, 'Pintura paredes', 'Mantenimiento oficina', 1, 1000.00, 'admin'),
+('2024-11-27', 6, 'Gastos varios', 'Múltiples gastos pequeños', 1, 350.00, 'admin');
+
+-- ============================================
+-- 17. PAGOS DE NÓMINA (25 pagos)
+-- ============================================
+
+INSERT INTO Pagos_Sueldos_Fijos (id_empleado, id_semana, sueldo_fijo, gasolina, total_pagar, estado, observaciones, registrado_por)
+VALUES
+(1, 7, 2500.00, 200.00, 2700.00, 'pagado', 'Pago semanal semana 4 nov', 'admin'),
+(2, 7, 2500.00, 180.00, 2680.00, 'pagado', 'Pago semanal semana 4 nov', 'admin'),
+(3, 7, 2500.00, 200.00, 2700.00, 'pagado', 'Pago semanal semana 4 nov', 'admin'),
+(6, 7, 2500.00, 190.00, 2690.00, 'pagado', 'Pago semanal semana 4 nov', 'admin'),
+(10, 7, 2500.00, 210.00, 2710.00, 'pagado', 'Pago semanal semana 4 nov', 'admin'),
+(4, 7, 2800.00, 200.00, 3000.00, 'pagado', 'Cobrador - Pago semanal', 'admin'),
+(5, 7, 2800.00, 180.00, 2980.00, 'pagado', 'Cobrador - Pago semanal', 'admin'),
+(7, 7, 2800.00, 220.00, 3020.00, 'pagado', 'Cobrador - Pago semanal', 'admin'),
+(9, 7, 2800.00, 200.00, 3000.00, 'pagado', 'Cobrador - Pago semanal', 'admin'),
+(11, 7, 2800.00, 150.00, 2950.00, 'pagado', 'Cobrador - Pago semanal', 'admin'),
+(13, 7, 2800.00, 180.00, 2980.00, 'pagado', 'Cobrador - Pago semanal', 'admin'),
+(1, 8, 2500.00, 200.00, 2700.00, 'pendiente', 'Pago semanal semana 1 nov', 'admin'),
+(2, 8, 2500.00, 180.00, 2680.00, 'pendiente', 'Pago semanal semana 1 nov', 'admin'),
+(3, 8, 2500.00, 200.00, 2700.00, 'pendiente', 'Pago semanal semana 1 nov', 'admin'),
+(6, 8, 2500.00, 190.00, 2690.00, 'pendiente', 'Pago semanal semana 1 nov', 'admin'),
+(10, 8, 2500.00, 210.00, 2710.00, 'pendiente', 'Pago semanal semana 1 nov', 'admin'),
+(4, 8, 2800.00, 200.00, 3000.00, 'pendiente', 'Cobrador - Pago semanal', 'admin'),
+(5, 8, 2800.00, 180.00, 2980.00, 'pendiente', 'Cobrador - Pago semanal', 'admin'),
+(7, 8, 2800.00, 220.00, 3020.00, 'pendiente', 'Cobrador - Pago semanal', 'admin'),
+(9, 8, 2800.00, 200.00, 3000.00, 'pendiente', 'Cobrador - Pago semanal', 'admin'),
+(11, 8, 2800.00, 150.00, 2950.00, 'pendiente', 'Cobrador - Pago semanal', 'admin'),
+(13, 8, 2800.00, 180.00, 2980.00, 'pendiente', 'Cobrador - Pago semanal', 'admin'),
+(1, 6, 2500.00, 200.00, 2700.00, 'pagado', 'Pago retroactivo nov 2024', 'admin'),
+(2, 6, 2500.00, 180.00, 2680.00, 'pagado', 'Pago retroactivo nov 2024', 'admin'),
+(3, 6, 2500.00, 200.00, 2700.00, 'pagado', 'Pago retroactivo nov 2024', 'admin');
+
+-- ============================================
+-- 18. EXTRAS DE COMISIÓN (15 extras)
+-- ============================================
+
+INSERT INTO Extras_Comision (id_comision, monto, observaciones)
+VALUES
+(1, 200.00, 'Bono desempeño vendedor'),
+(2, 150.00, 'Incentivo puntualidad'),
+(3, 300.00, 'Bono ventas especiales'),
+(4, 100.00, 'Bonificación cobranza'),
+(5, 250.00, 'Premio meta cumplida'),
+(6, 180.00, 'Incentivo equipo'),
+(7, 220.00, 'Bono desempeño'),
+(8, 140.00, 'Bonificación especial'),
+(9, 290.00, 'Premio ventas'),
+(10, 160.00, 'Incentivo cobranza'),
+(11, 240.00, 'Bono cumplimiento'),
+(12, 170.00, 'Bonificación extra'),
+(13, 210.00, 'Incentivo vendedor'),
+(14, 150.00, 'Premio meta'),
+(15, 280.00, 'Bono especial');
+
+-- ============================================
+-- 19. PRÉSTAMOS INHABILITADOS (5 préstamos)
+-- ============================================
+
+INSERT INTO Prestamos_Inhabilitados (id_comision, monto_inhabilitado, observaciones, registrado_por)
+VALUES
+(1, 200.00, 'Préstamo no recuperable - acuerdo laboral', 'admin'),
+(2, 150.00, 'Cantidad no cobrada - saldo perdido', 'admin'),
+(3, 300.00, 'Fondo de caja faltante', 'admin'),
+(4, 100.00, 'Anticipos no descontados', 'admin'),
+(5, 250.00, 'Pérdida por devolución', 'admin');
+
+PRAGMA foreign_keys=ON;
+
+-- ============================================
+-- VERIFICACIÓN FINAL
+-- ============================================
+
+SELECT '✅ DATOS MASIVOS CARGADOS EXITOSAMENTE' as resultado;
+SELECT 'Total de registros creados:' as info;</sql><current_tab id="0"/></tab_sql></sqlb_project>

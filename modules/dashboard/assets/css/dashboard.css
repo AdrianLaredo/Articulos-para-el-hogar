@@ -1,0 +1,903 @@
+/* ==== VARIABLES ==== */
+:root {
+  --color-bg: #f2f4f8;
+  --color-primary: #0c3c78;
+  --color-secondary: #1e5799;
+  --color-accent: #10B981;
+  --color-tertiary: #059669;
+  --color-dark: #1e1f26;
+  --color-light: #ffffff;
+  --radius: 12px;
+}
+
+/* ==== RESET ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Poppins', sans-serif;
+}
+
+body {
+  background: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ==== HEADER ==== */
+header {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  color: var(--color-light);
+  padding: 12px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: relative;
+  flex-shrink: 0; /* Importante para que el header no se comprima */
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  left: 30px;
+}
+
+.brand i {
+  font-size: 1.8rem;
+  color: var(--color-accent);
+}
+
+.brand h1 {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--color-light);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.rol-badge {
+  background: var(--color-accent);
+  color: var(--color-dark);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.nav-principal {
+  display: flex;
+  gap: 25px;
+  position: absolute;
+  right: 30px;
+}
+
+.nav-principal a {
+  text-decoration: none;
+  color: var(--color-light);
+  font-weight: 500;
+  transition: 0.3s;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.nav-principal a:hover::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: 4px;
+}
+
+/* ==== BOTÓN HAMBURGUESA (OCULTO POR DEFECTO) ==== */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-light);
+  font-size: 1.8rem;
+  cursor: pointer;
+  position: absolute;
+  left: 15px;
+  z-index: 2001;
+}
+
+/* ==== LAYOUT ==== */
+.layout {
+  flex: 1;
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  min-height: 0; /* Importante para flex en algunos navegadores */
+}
+
+/* ==== SIDEBAR ==== */
+aside {
+  width: 260px;
+  background: var(--color-light);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #e0e3ea;
+  box-shadow: 4px 0 12px rgba(0,0,0,0.05);
+  transition: width 0.3s ease;
+  overflow: hidden;
+  min-height: 0; /* Importante para flex */
+}
+
+aside h2 {
+  text-align: center;
+  padding: 20px 0;
+  color: var(--color-primary);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #eee;
+  flex-shrink: 0;
+}
+
+.menu {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  min-height: 0; /* Importante para permitir scroll */
+  height: 100%; /* Asegurar que use todo el espacio disponible */
+}
+
+.menu ul {
+  list-style: none;
+}
+
+/* Categorías del menú */
+.menu-category {
+  padding: 12px 25px !important;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  background: #f8f9fa;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-left: 3px solid var(--color-accent);
+  transition: all 0.3s ease;
+}
+
+.menu-category:hover {
+  background: #e9ecef;
+  transform: none !important;
+}
+
+.menu-category i.bx-chevron-down {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.menu-category.expanded i.bx-chevron-down {
+  transform: rotate(180deg);
+}
+
+/* Items del menú principal */
+.menu li {
+  padding: 14px 25px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--color-dark);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.menu li i {
+  font-size: 20px;
+  color: var(--color-secondary);
+  transition: 0.3s;
+}
+
+.menu li:hover {
+  background: var(--color-primary);
+  color: var(--color-light);
+  transform: translateX(5px);
+}
+
+.menu li:hover i {
+  color: var(--color-accent);
+}
+
+.menu li.active {
+  background: var(--color-primary);
+  color: var(--color-light);
+  border-left: 4px solid var(--color-accent);
+}
+
+.menu li.active i {
+  color: var(--color-accent);
+}
+
+/* Submenús - MAX HEIGHT AUMENTADO */
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  background: #f8f9fa;
+}
+
+.submenu.expanded {
+  max-height: 5000px; /* Aumentado significativamente para permitir más items */
+}
+
+.submenu li {
+  padding-left: 60px !important;
+  font-size: 0.9rem;
+  background: #f8f9fa;
+}
+
+.submenu li:hover {
+  background: var(--color-secondary);
+  padding-left: 65px !important;
+}
+
+.submenu li i {
+  font-size: 16px;
+}
+
+/* ==== MAIN ==== */
+main {
+  flex: 1;
+  padding: 40px;
+  background: var(--color-bg);
+  overflow-y: auto;
+  position: relative;
+}
+
+section {
+  display: none;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  color: var(--color-primary);
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: var(--color-light);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+  color: var(--color-secondary);
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.card p {
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ==== Mensajes de error Login ==== */
+.error-message {
+  background: #ffdddd;
+  color: #a70000;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #ff5c5c;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* ==== SCROLLBAR PARA ESCRITORIO ==== */
+.menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.menu::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.menu::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 3px;
+}
+
+.menu::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* ==== BOTÓN ☰ INTERNO ==== */
+.toggle-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--color-primary);
+  cursor: pointer;
+  margin: 10px auto;
+  display: block;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.toggle-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ==== MENU COLAPSADO ==== */
+aside.collapsed {
+  width: 70px;
+}
+
+aside.collapsed h2,
+aside.collapsed .menu li,
+aside.collapsed .menu-category {
+  display: none;
+}
+
+aside.collapsed .toggle-btn {
+  margin-top: 20px;
+}
+
+aside.collapsed i {
+  font-size: 24px;
+  margin: 0 auto;
+  display: block;
+}
+
+
+/* ========================================
+   TABLETS GRANDES: 10-14 PULGADAS (769px - 1024px)
+   ======================================== */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  header {
+    padding: 8px 20px;
+    justify-content: center;
+  }
+
+  .brand {
+    left: 20px;
+  }
+
+  .brand h1 {
+    font-size: 1rem;
+  }
+
+  .brand i {
+    font-size: 1.5rem;
+  }
+
+  .user-info {
+    gap: 10px;
+  }
+
+  .user-info span {
+    font-size: 0.9rem;
+  }
+
+  .rol-badge {
+    font-size: 0.72rem;
+    padding: 3px 9px;
+  }
+
+  .nav-principal {
+    gap: 16px;
+    right: 20px;
+  }
+
+  .nav-principal a {
+    font-size: 0.85rem;
+  }
+
+  aside {
+    width: 240px;
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+  }
+
+  aside h2 {
+    padding: 12px 0;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .menu {
+    flex: 1;
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    height: 100% !important;
+    max-height: none !important;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    padding-bottom: 30px;
+  }
+
+  .menu li {
+    padding: 10px 18px;
+  }
+
+  .menu li i {
+    font-size: 17px;
+  }
+
+  .menu-category {
+    padding: 9px 18px !important;
+    font-size: 0.68rem;
+  }
+
+  .submenu {
+    transition: max-height 0.5s ease;
+  }
+
+  .submenu.expanded {
+    max-height: 10000px !important;
+  }
+
+  .submenu li {
+    padding: 10px 18px 10px 48px !important;
+    font-size: 0.82rem;
+  }
+
+  .submenu li:hover {
+    padding-left: 53px !important;
+  }
+
+  main {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+
+  .card {
+    padding: 16px;
+    margin-bottom: 15px;
+  }
+
+  .card h3 {
+    font-size: 0.95rem;
+  }
+
+  .toggle-btn {
+    font-size: 1.5rem;
+    margin: 8px auto;
+    flex-shrink: 0;
+  }
+
+  .menu::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .menu::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+  }
+
+  .menu::-webkit-scrollbar-thumb {
+    background: var(--color-secondary);
+    border-radius: 5px;
+  }
+
+  .menu::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+  }
+}
+/* ========================================
+   TABLETS PEQUEÑAS (601px - 768px)
+   ======================================== */
+@media screen and (min-width: 601px) and (max-width: 768px) {
+  header {
+    padding: 10px 15px;
+    justify-content: center;
+  }
+
+  .brand {
+    display: none;
+  }
+
+  .brand h1 {
+    font-size: 1rem;
+  }
+
+  .user-info {
+    gap: 8px;
+  }
+
+  .user-info span {
+    font-size: 0.9rem;
+  }
+
+  .rol-badge {
+    font-size: 0.75rem;
+    padding: 3px 9px;
+  }
+
+  .nav-principal {
+    right: 15px;
+    gap: 15px;
+  }
+
+  .nav-principal a {
+    font-size: 0.85rem;
+  }
+
+  aside {
+    width: 220px;
+  }
+
+  aside h2 {
+    padding: 12px 0;
+    font-size: 0.9rem;
+  }
+
+  .menu {
+    overflow-y: auto !important;
+  }
+
+  .menu li {
+    padding: 11px 18px;
+  }
+
+  .menu-category {
+    padding: 9px 18px !important;
+  }
+
+  .submenu.expanded {
+    max-height: 5000px;
+  }
+
+  .submenu li {
+    padding: 11px 18px 11px 45px !important;
+  }
+
+  main {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+  }
+}
+
+/* ========================================
+   LANDSCAPE MODE PARA TABLETS - MEJORADO
+   ======================================== */
+@media screen and (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  header {
+    padding: 6px 20px; /* Reducido para dar más espacio al menú */
+    justify-content: center;
+  }
+
+  .brand {
+    left: 15px;
+  }
+
+  .brand h1 {
+    font-size: 0.95rem;
+  }
+
+  .brand i {
+    font-size: 1.4rem;
+  }
+
+  .user-info {
+    gap: 8px;
+  }
+
+  .user-info span {
+    font-size: 0.85rem;
+  }
+
+  .rol-badge {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+  }
+
+  .nav-principal {
+    right: 15px;
+    gap: 12px;
+  }
+
+  .nav-principal a {
+    font-size: 0.8rem;
+  }
+
+  aside {
+    width: 220px;
+  }
+
+  aside h2 {
+    padding: 10px 0; /* Reducido */
+    font-size: 0.85rem;
+  }
+
+  /* CLAVE: Mejor gestión del scroll en landscape */
+  .menu {
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    height: 100% !important;
+    max-height: none !important;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth; /* Scroll suave */
+  }
+
+  .menu li {
+    padding: 9px 18px; /* Reducido para más compacto */
+  }
+
+  .menu-category {
+    padding: 8px 18px !important; /* Reducido */
+  }
+
+  /* CRÍTICO: Max-height muy alto para landscape */
+  .submenu.expanded {
+    max-height: 8000px !important; /* Aumentado dramáticamente */
+  }
+
+  .submenu li {
+    padding: 9px 18px 9px 45px !important; /* Reducido */
+  }
+
+  main {
+    padding: 15px; /* Reducido en landscape */
+  }
+
+  /* Scrollbar más visible en landscape */
+  .menu::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .menu::-webkit-scrollbar-thumb {
+    background: var(--color-secondary);
+    border-radius: 5px;
+  }
+
+  .menu::-webkit-scrollbar-track {
+    background: #e9ecef;
+  }
+}
+
+/* ========================================
+   MÓVILES (hasta 600px) - VERSIÓN CONSOLIDADA
+   ======================================== */
+@media screen and (max-width: 600px) {
+  header {
+    padding: 10px 15px;
+    justify-content: center;
+    position: relative;
+    z-index: 2002;
+  }
+
+  .brand {
+    display: none;
+  }
+
+  .user-info {
+    font-size: 0.85rem;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .user-info span {
+    font-size: 0.85rem;
+  }
+
+  .rol-badge {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+
+  .nav-principal {
+    position: absolute;
+    right: 15px;
+    gap: 10px;
+  }
+
+  .nav-principal a {
+    font-size: 0.8rem;
+  }
+
+  .nav-principal a span {
+    display: none;
+  }
+
+  /* Botón hamburguesa visible */
+  .mobile-menu-btn {
+    display: block !important;
+  }
+
+  /* Sidebar móvil */
+  aside {
+    position: fixed;
+    left: -260px;
+    top: 0;
+    height: 100vh;
+    z-index: 2000;
+    transition: left 0.3s ease;
+    width: 260px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  aside.mobile-open {
+    left: 0;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Anular estado collapsed en móvil */
+  aside.collapsed {
+    width: 260px !important;
+  }
+
+  aside.collapsed h2,
+  aside.collapsed .menu,
+  aside.collapsed .menu li,
+  aside.collapsed .menu-category {
+    display: flex !important;
+  }
+
+  aside.collapsed .menu {
+    display: block !important;
+  }
+
+  aside h2 {
+    padding: 15px 0;
+    font-size: 0.9rem;
+    position: sticky;
+    top: 0;
+    background: var(--color-light);
+    z-index: 10;
+  }
+
+  .toggle-btn {
+    position: sticky;
+    top: 0;
+    background: var(--color-light);
+    z-index: 10;
+  }
+
+  .menu {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 20px;
+  }
+
+  .menu li {
+    padding: 12px 20px;
+  }
+
+  .menu-category {
+    padding: 10px 20px !important;
+  }
+
+  .submenu li {
+    padding: 12px 20px 12px 50px !important;
+  }
+
+  .submenu.expanded {
+    max-height: 5000px;
+  }
+
+  /* Overlay */
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1500;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .sidebar-overlay.active {
+    display: block;
+  }
+
+  /* Main */
+  main {
+    padding: 15px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+
+  .card {
+    padding: 15px;
+    margin-bottom: 12px;
+  }
+}
+
+/* ========================================
+   FIX PARA TABLETS - SCROLLING MEJORADO
+   ======================================== */
+@media screen and (max-width: 1024px) {
+  .menu {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    height: 100% !important;
+    max-height: none !important;
+    scroll-behavior: smooth;
+  }
+
+  .submenu.expanded {
+    max-height: 8000px !important; /* Aumentado para asegurar que todo sea visible */
+  }
+
+  .menu li,
+  .submenu li,
+  .menu-category {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    touch-action: manipulation;
+  }
+
+  .menu::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .menu::-webkit-scrollbar-thumb {
+    background: var(--color-secondary);
+    border-radius: 5px;
+  }
+
+  .menu::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+  }
+
+  .menu::-webkit-scrollbar-track {
+    background: #e9ecef;
+  }
+}

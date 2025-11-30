@@ -1,0 +1,1816 @@
+:root {
+  --color-bg: #f2f4f8;
+  --color-primary: #0c3c78;
+  --color-secondary: #1e5799;
+  --color-accent: #10B981;
+  --color-success: #10b981;
+  --color-danger: #ef4444;
+  --color-warning: #f59e0b;
+  --color-info: #3b82f6;
+  --color-dark: #1e1f26;
+  --color-light: #ffffff;
+  --color-muted: #6b7280;
+  --radius: 12px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* ==== RESET ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Poppins', sans-serif;
+}
+
+body {
+  background: var(--color-bg);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* ==== CONTAINER ==== */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ==== HEADER ==== */
+h1 {
+  color: var(--color-primary);
+  font-size: 2rem;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+h1 i {
+  font-size: 2.2rem;
+  color: var(--color-accent);
+}
+
+h2 {
+  color: var(--color-secondary);
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+h2 i {
+  color: var(--color-accent);
+}
+
+h3 {
+  color: var(--color-dark);
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ==== HEADER ACTIONS ==== */
+.header-actions {
+  margin-bottom: 20px;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--color-light);
+  color: var(--color-primary);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  background: var(--color-primary);
+  color: var(--color-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ==== MENSAJES ==== */
+.mensaje {
+  padding: 15px 20px;
+  border-radius: var(--radius);
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+  animation: slideDown 0.4s ease;
+}
+
+.mensaje i {
+  font-size: 1.5rem;
+}
+
+.mensaje.success {
+  background: #d1fae5;
+  color: #065f46;
+  border-left: 4px solid var(--color-success);
+}
+
+.mensaje.error {
+  background: #fee2e2;
+  color: #991b1b;
+  border-left: 4px solid var(--color-danger);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==== CARD ==== */
+.card {
+  background: var(--color-light);
+  border-radius: var(--radius);
+  padding: 30px;
+  box-shadow: var(--shadow);
+  margin-bottom: 30px;
+}
+
+/* ==== FORMULARIO ==== */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.form-group label i {
+  color: var(--color-secondary);
+  font-size: 1.1rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: var(--color-light);
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(12, 60, 120, 0.1);
+}
+
+.readonly-field {
+  background: #f3f4f6;
+  cursor: not-allowed;
+}
+
+/* ==== BOTONES ==== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn i {
+  font-size: 1.2rem;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-light);
+}
+
+.btn-primary:hover {
+  background: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(12, 60, 120, 0.3);
+}
+
+.btn-secondary {
+  background: var(--color-muted);
+  color: var(--color-light);
+}
+
+.btn-secondary:hover {
+  background: #4b5563;
+  transform: translateY(-2px);
+}
+
+.btn-large {
+  padding: 15px 35px;
+  font-size: 1.1rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-action i {
+  font-size: 1.2rem;
+}
+
+/* ==== BADGES Y ESTADOS ==== */
+.estado-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.estado-badge.credito {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.estado-badge.contado {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.estado-badge.liquidado {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+/* ==== TABLA DE PRODUCTOS ==== */
+.tabla-productos {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.tabla-productos table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-light);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.tabla-productos thead {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  color: var(--color-light);
+}
+
+.tabla-productos thead th {
+  padding: 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.tabla-productos tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background 0.3s ease;
+}
+
+.tabla-productos tbody tr:hover {
+  background: #f9fafb;
+}
+
+.tabla-productos tbody td {
+  padding: 14px;
+  color: var(--color-dark);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-muted {
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+/* ==== EMPTY STATE ==== */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--color-muted);
+}
+
+.empty-state i {
+  font-size: 5rem;
+  color: #d1d5db;
+  margin-bottom: 20px;
+}
+
+.empty-state p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* ============================================ */
+/* ESTILOS ESPECÍFICOS PARA MÓDULO DE FOLIOS */
+/* ============================================ */
+
+/* Estadísticas */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.stat-card {
+    background: var(--color-light);
+    padding: 25px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-left: 4px solid var(--color-primary);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    background: var(--color-primary);
+}
+
+.stat-info {
+    flex: 1;
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Colores de dinero */
+.money-positive {
+    color: var(--color-success);
+    font-weight: 600;
+}
+
+.money-negative {
+    color: var(--color-danger);
+    font-weight: 600;
+}
+
+.money-neutral {
+    color: var(--color-info);
+    font-weight: 600;
+}
+
+/* Card de filtros */
+.filtros-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+/* Card de búsqueda rápida */
+.folio-search-section {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    padding: 25px;
+    border-radius: var(--radius);
+    margin-bottom: 25px;
+    border-left: 4px solid var(--color-info);
+    box-shadow: var(--shadow);
+}
+
+.folio-search-section h2 {
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+.quick-search-form {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.quick-search-form .form-group {
+    flex: 1;
+    min-width: 300px;
+    margin-bottom: 0;
+}
+
+.quick-search-form .btn {
+    white-space: nowrap;
+}
+
+/* Búsqueda en tabla */
+.search-box {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 14px 45px 14px 45px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: var(--color-light);
+}
+
+.search-box input:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(12, 60, 120, 0.1);
+}
+
+.search-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-muted);
+    font-size: 20px;
+}
+
+.clear-search {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--color-muted);
+    font-size: 22px;
+    cursor: pointer;
+    display: none;
+    transition: all 0.2s ease;
+}
+
+.clear-search:hover {
+    color: var(--color-danger);
+    transform: translateY(-50%) scale(1.2);
+}
+
+/* Tabla de folios */
+.table-container {
+    overflow-x: auto;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.table-contratos {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-light);
+}
+
+.table-contratos thead {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    color: var(--color-light);
+}
+
+.table-contratos thead th {
+    padding: 16px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.table-contratos tbody tr {
+    border-bottom: 1px solid #e5e7eb;
+    transition: all 0.2s ease;
+}
+
+.table-contratos tbody tr:hover {
+    background: #f9fafb;
+    transform: scale(1.005);
+}
+
+.table-contratos tbody td {
+    padding: 16px 14px;
+    color: var(--color-dark);
+    font-size: 0.9rem;
+}
+
+/* Resaltado de folio */
+.folio-highlight {
+    background-color: #fff3cd !important;
+    border-left: 4px solid var(--color-warning);
+}
+
+.folio-highlight:hover {
+    background-color: #ffeaa7 !important;
+}
+
+/* Badge de traspaso */
+.badge-traspaso {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    color: #92400e;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid #fbbf24;
+    box-shadow: 0 2px 4px rgba(251, 191, 36, 0.2);
+}
+
+.badge-traspaso i {
+    font-size: 1rem;
+    animation: pulse-traspaso 2s ease-in-out infinite;
+}
+
+@keyframes pulse-traspaso {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+}
+
+.row-con-traspaso {
+    background: linear-gradient(90deg, rgba(254, 243, 199, 0.15) 0%, transparent 100%);
+}
+
+.tooltip-traspaso {
+    position: relative;
+    cursor: help;
+}
+
+.tooltip-traspaso:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 12px;
+    background: #1f2937;
+    color: white;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+/* Botón de ver */
+.btn-view {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-view:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+/* Sin resultados */
+.no-results {
+    text-align: center;
+    padding: 50px 20px;
+    color: var(--color-muted);
+    display: none;
+}
+
+.no-results i {
+    font-size: 4rem;
+    color: #d1d5db;
+    margin-bottom: 15px;
+}
+
+/* ============================================ */
+/* PAGINACIÓN */
+/* ============================================ */
+
+.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: var(--radius);
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.pagination-info {
+    color: var(--color-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.pagination-info strong {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.pagination-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.pagination-controls select {
+    padding: 8px 12px;
+    border: 2px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background: var(--color-light);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination-controls select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.pagination-controls label {
+    color: var(--color-dark);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.pagination-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-page {
+    padding: 8px 16px;
+    background: var(--color-light);
+    border: 2px solid #e5e7eb;
+    border-radius: 6px;
+    color: var(--color-dark);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.btn-page:hover:not(:disabled) {
+    background: var(--color-primary);
+    color: var(--color-light);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.btn-page:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.btn-page.active {
+    background: var(--color-primary);
+    color: var(--color-light);
+    border-color: var(--color-primary);
+}
+
+/* ============================================ */
+/* ESTILOS PARA EL SISTEMA DE TRASPASOS */
+/* ============================================ */
+
+.btn-traspaso {
+    background: linear-gradient(135deg, #2DD4BF 0%, #0D9488 100%);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(45, 212, 191, 0.3);
+}
+
+.btn-traspaso:hover {
+    background: linear-gradient(135deg, #0D9488 0%, #0F766E 100%);
+    box-shadow: 0 6px 12px rgba(45, 212, 191, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-traspaso i {
+    font-size: 1.2rem;
+}
+
+/* Modal de traspaso */
+.modal-traspaso {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+}
+
+.modal-traspaso.active {
+    display: flex;
+}
+
+.modal-content-traspaso {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-header-traspaso {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.modal-header-traspaso h3 {
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.btn-close-modal {
+    background: #fee2e2;
+    color: #991b1b;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    line-height: 1;
+}
+
+.btn-close-modal:hover {
+    background: #fecaca;
+    transform: rotate(90deg);
+}
+
+.form-group-traspaso {
+    margin-bottom: 20px;
+}
+
+.form-group-traspaso label {
+    display: block;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 8px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.form-group-traspaso select,
+.form-group-traspaso input,
+.form-group-traspaso textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.form-group-traspaso select:focus,
+.form-group-traspaso input:focus,
+.form-group-traspaso textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(12, 60, 120, 0.1);
+}
+
+.info-box-traspaso {
+    background: #f0f9ff;
+    border-left: 4px solid var(--color-info);
+    padding: 15px;
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+}
+
+.info-box-traspaso p {
+    margin: 0;
+    color: var(--color-primary);
+    font-size: 14px;
+}
+
+.empleado-option {
+    padding: 8px;
+}
+
+.modal-footer-traspaso {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+    justify-content: flex-end;
+}
+
+.alert-traspaso {
+    padding: 12px 16px;
+    border-radius: var(--radius);
+    margin-bottom: 15px;
+    display: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.alert-traspaso.success {
+    background: #d1fae5;
+    color: #065f46;
+    border-left: 4px solid var(--color-success);
+}
+
+.alert-traspaso.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border-left: 4px solid var(--color-danger);
+}
+
+.alert-traspaso.active {
+    display: block;
+    animation: slideDown 0.3s ease-out;
+}
+
+.btn-loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.btn-loading i {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ============================================ */
+/* ESTILOS ESPECÍFICOS PARA COMISIONES */
+/* ============================================ */
+
+.comision-input {
+    width: 80px;
+    padding: 8px;
+    border: 2px solid #e5e7eb;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.comision-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(12, 60, 120, 0.1);
+}
+
+.precio-venta {
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.enganche-section {
+    background: #f0f7ff;
+    padding: 20px;
+    border-radius: var(--radius);
+    margin: 20px 0;
+    border-left: 4px solid var(--color-info);
+}
+
+.folio-manual {
+    background: #fff3cd;
+    padding: 15px;
+    border-radius: var(--radius);
+    border-left: 4px solid var(--color-warning);
+    margin-bottom: 20px;
+}
+
+.comision-total {
+    background: #d1fae5;
+    padding: 15px;
+    border-radius: var(--radius);
+    font-weight: bold;
+    border-left: 4px solid var(--color-success);
+    margin-top: 15px;
+}
+
+.desglose-enganche {
+    margin-top: 15px;
+    padding: 15px;
+    background: var(--color-light);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+/* ============================================ */
+/* RESPONSIVE */
+/* ============================================ */
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .table-contratos {
+        font-size: 0.8rem;
+    }
+    
+    .table-contratos th,
+    .table-contratos td {
+        padding: 10px 8px;
+    }
+    
+    .pagination-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .pagination-controls {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .pagination-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .folio-search-section {
+        padding: 20px;
+    }
+    
+    .quick-search-form {
+        flex-direction: column;
+    }
+    
+    .quick-search-form .form-group {
+        min-width: 100%;
+    }
+    
+    .modal-content-traspaso {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    .modal-footer-traspaso {
+        flex-direction: column;
+    }
+    
+    .btn-traspaso {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* =========================
+   FIX PAGINACIÓN Y SUBMENÚS
+   (añadir al final del CSS)
+   ========================= */
+
+/* Smooth scrolling en contenedores largos (mejora UX en tablets) */
+main,
+.card,
+.productos-section,
+.tabla-productos,
+.table-contratos,
+.table-container,
+.modal-content-traspaso,
+.alert-traspaso,
+.submenu,
+aside,
+.sidebar,
+.menu {
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+}
+
+/* -------------------------
+   PAGINACIÓN: mantener info arriba y botones en una fila
+   (stacked en pantallas pequeñas, inline en pantallas >=1024px)
+   ------------------------- */
+
+/* Default (móvil / tablets portrait): info arriba, botones debajo centrados */
+.pagination-container,
+.pagination {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+/* Forzar orden: info primero, botones después */
+.pagination-info {
+  order: 1;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto 6px;
+  text-align: center;
+}
+
+/* Grupo de botones: no hacer wrap; permitir scroll horizontal si no caben */
+.pagination-buttons,
+.pagination-controls {
+  order: 2;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: nowrap;          /* no permitir salto a siguiente línea */
+  white-space: nowrap;
+  overflow-x: auto;           /* si no cabe, se puede scrollear horizontal */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+/* Botones mantienen tamaño táctil mínimo y no se expanden */
+.btn-page,
+.pagination-btn,
+.pagination-number,
+.btn-page.active,
+.pagination-btn.active {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  min-width: 40px; /* objetivo táctil razonable */
+  box-sizing: border-box;
+}
+
+/* Reducir padding en pantallas medianas para ganar espacio */
+@media (max-width: 1024px) {
+  .btn-page,
+  .pagination-btn {
+    padding: 8px 10px;
+    min-width: 36px;
+  }
+}
+
+/* En pantallas >=1024px (tablet landscape / desktop): intentar mostrar en una sola línea centrada */
+@media (min-width: 1024px) {
+  .pagination-container,
+  .pagination {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .pagination-info {
+    order: 0;
+    width: auto;
+    max-width: none;
+    margin: 0 12px 0 0;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .pagination-buttons,
+  .pagination-controls {
+    order: 1;
+    overflow-x: visible; /* preferimos mostrar en línea si cabe */
+    flex-wrap: nowrap;
+  }
+}
+
+/* En pantallas muy anchas (opcional): info izquierda y controles derecha si añades .pagination--wide */
+@media (min-width: 1400px) {
+  .pagination.pagination--wide,
+  .pagination-container.pagination--wide {
+    justify-content: space-between;
+  }
+  .pagination.pagination--wide .pagination-info,
+  .pagination-container.pagination--wide .pagination-info {
+    text-align: left;
+    margin: 0;
+  }
+  .pagination.pagination--wide .pagination-buttons,
+  .pagination-container.pagination--wide .pagination-buttons {
+    justify-content: flex-end;
+  }
+}
+
+/* -------------------------
+   SIDEBAR / SUBMENÚS: limitar altura y usar scroll interno
+   ------------------------- */
+
+/* Sidebar general: no empuja el main si hay menus largos */
+aside,
+.sidebar,
+.menu {
+  max-height: calc(100vh - 80px); /* deja espacio para header (ajusta 80px si tu header mide distinto) */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  box-sizing: border-box;
+}
+
+/* Submenus: limitar alto, scroll interno y transición suave */
+.submenu {
+  max-height: 50vh;   /* no ocupar más de la vista */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transition: max-height 0.32s ease;
+  padding-left: 8px;
+  box-sizing: border-box;
+}
+
+/* Evitar que cada item fuerce overflow o corte raro */
+.submenu li {
+  white-space: normal;
+  padding: 8px 12px;
+  box-sizing: border-box;
+}
+
+/* Ajustes más estrictos en móviles/portrait */
+@media (max-width: 768px) {
+  aside,
+  .sidebar,
+  .menu {
+    max-height: calc(100vh - 70px);
+  }
+  .submenu {
+    max-height: 40vh;
+  }
+
+  /* Si en móvil te interesa que la paginación sea vertical: */
+  .pagination-container,
+  .pagination {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* -------------------------
+   MODALES / ALERTAS / Z-INDEX
+   ------------------------- */
+
+.modal-traspaso,
+.modal-content-traspaso,
+.alerta-panel,
+.alert-traspaso,
+.tooltip-traspaso .tooltiptext {
+  z-index: 99999; /* asegurar que siempre estén encima */
+}
+
+/* Limitar tamaño de modales y permitir scroll interior */
+.modal-content-traspaso {
+  max-height: 90vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+}
+
+/* Limitar alertas/alert panels si hay muchas */
+.alerta-panel,
+.alert-traspaso {
+  max-height: 70vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+}
+
+/* -------------------------
+   Prevención overflow/behaviour extraño en flex parents
+   ------------------------- */
+.table-container,
+.tabla-productos,
+.table-contratos,
+.producto-card,
+.card,
+.asignacion-card,
+.producto-info {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Scrollbar estético opcional (no cambia diseño) */
+.pagination-buttons::-webkit-scrollbar,
+.submenu::-webkit-scrollbar,
+.tabla-productos::-webkit-scrollbar,
+.modal-content-traspaso::-webkit-scrollbar,
+aside::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+.pagination-buttons::-webkit-scrollbar-thumb,
+.submenu::-webkit-scrollbar-thumb,
+.tabla-productos::-webkit-scrollbar-thumb,
+.modal-content-traspaso::-webkit-scrollbar-thumb,
+aside::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.12);
+  border-radius: 6px;
+}
+
+
+
+
+
+
+
+
+/* ============================================
+   ESTILOS PARA MODAL DE CANCELACIÓN
+   ============================================ */
+
+/* Modal general */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    overflow-y: auto;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-content {
+    max-width: 1000px;
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+.modal-cancelacion {
+    max-width: 900px;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header-cancel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #fee2e2;
+    margin-bottom: 20px;
+}
+
+.modal-header-cancel h2 {
+    margin: 0;
+    color: var(--color-danger);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #fee2e2;
+    color: #991b1b;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-close-modal:hover {
+    background: #fecaca;
+    transform: rotate(90deg);
+}
+
+/* Botón cancelar en acciones */
+.btn-action.btn-cancel {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+}
+
+.btn-action.btn-cancel:hover {
+    background: linear-gradient(135deg, #fecaca, #fca5a5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+/* Información del folio a cancelar */
+.info-folio-cancelar {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border-left: 4px solid var(--color-primary);
+}
+
+.info-folio-cancelar h3 {
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.grid-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.grid-info > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.grid-info strong {
+    color: var(--color-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.highlight-text {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.money-text { color: var(--color-text); font-weight: 600; }
+.money-positive { color: var(--color-success); font-weight: 600; }
+.money-negative { color: var(--color-danger); font-weight: 600; }
+.money-neutral { color: var(--color-info); font-weight: 600; }
+.money-info { color: #f59e0b; font-weight: 600; }
+
+/* Productos section */
+.productos-section {
+    margin: 25px 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.productos-section h4 {
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.productos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.producto-item {
+    background: white;
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 3px solid var(--color-primary);
+}
+
+.producto-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.producto-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.producto-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.producto-label {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.producto-precio {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+}
+
+.producto-estado {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.estado-label {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+}
+
+/* Cálculo automático */
+.calculo-automatico {
+    background: linear-gradient(135deg, #f0f7ff, #e0f2fe);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 25px 0;
+    border-left: 4px solid var(--color-info);
+}
+
+.calculo-automatico h4 {
+    color: var(--color-info);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.grid-calculo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.calculo-item {
+    background: white;
+    padding: 15px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 3px solid #e0e0e0;
+}
+
+.calculo-item.danger {
+    background: #fee2e2;
+    border-left-color: var(--color-danger);
+}
+
+.calculo-item.success {
+    background: #d1fae5;
+    border-left-color: var(--color-success);
+}
+
+.calculo-item.warning {
+    background: #fef3c7;
+    border-left-color: #f59e0b;
+}
+
+.calculo-label {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    font-weight: 500;
+}
+
+.calculo-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.calculo-value.highlight {
+    color: var(--color-primary);
+    font-size: 1.4rem;
+}
+
+.calculo-value.danger-text {
+    color: var(--color-danger);
+}
+
+.calculo-value.success-text {
+    color: var(--color-success);
+}
+
+.calculo-value.warning-text {
+    color: #f59e0b;
+}
+
+/* Form controls */
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-control-sm {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+.form-help {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+}
+
+/* Checkbox labels */
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.checkbox-label:hover {
+    background: #e9ecef;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-top: 4px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.checkbox-label span {
+    flex: 1;
+}
+
+.checkbox-label small {
+    display: block;
+    margin-top: 5px;
+    color: var(--color-muted);
+    font-size: 0.85rem;
+}
+
+/* Confirmación section */
+.confirmacion-section {
+    margin: 25px 0;
+    padding: 20px;
+    background: #fff3cd;
+    border-radius: 8px;
+    border-left: 4px solid #ffc107;
+}
+
+.checkbox-confirm {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.checkbox-confirm input[type="checkbox"] {
+    margin-top: 4px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.checkbox-confirm span {
+    color: #856404;
+    line-height: 1.6;
+}
+
+/* Modal actions */
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #e9ecef;
+}
+
+/* Badges */
+.badge-cancelado {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    color: #991b1b;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid #fca5a5;
+}
+
+.badge-activo {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    color: #065f46;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid #6ee7b7;
+}
+
+/* Fila cancelada */
+.row-cancelado {
+    background: rgba(254, 226, 226, 0.3) !important;
+    opacity: 0.7;
+}
+
+.row-cancelado:hover {
+    opacity: 1;
+    background: rgba(254, 226, 226, 0.5) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 20px;
+        margin: 10px;
+        max-height: 95vh;
+    }
+    
+    .grid-info,
+    .grid-calculo {
+        grid-template-columns: 1fr;
+    }
+    
+    .producto-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+    }
+    
+    .modal-actions button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,638 @@
+:root {
+  --color-bg: #f2f4f8;
+  --color-primary: #0c3c78;
+  --color-secondary: #1e5799;
+  --color-accent: #10B981;
+  --color-success: #10b981;
+  --color-danger: #ef4444;
+  --color-warning: #f59e0b;
+  --color-info: #3b82f6;
+  --color-dark: #1e1f26;
+  --color-light: #ffffff;
+  --color-muted: #6b7280;
+  --radius: 12px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ==== RESET ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Poppins', sans-serif;
+}
+
+body {
+  background: var(--color-bg);
+  min-height: 100vh;
+  padding: 20px;
+  padding-bottom: 75px; /* Espacio extra desktop */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==== CONTAINER ==== */
+.container {
+  max-width: 900px;
+  width: 100%;
+  position: relative;
+}
+
+/* Espacio invisible al final del container */
+.container::after {
+  content: '';
+  display: block;
+  height: 75px; /* Espacio extra desktop */
+  width: 100%;
+}
+
+/* ==== HEADER ==== */
+.header {
+  background: var(--color-light);
+  padding: 40px;
+  border-radius: var(--radius);
+  margin-bottom: 30px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.header h1 {
+  color: var(--color-primary);
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.header p {
+  color: var(--color-muted);
+  font-size: 1rem;
+}
+
+/* ==== REPORT SELECTOR ==== */
+.report-selector {
+  background: var(--color-light);
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.section {
+  margin-bottom: 35px;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-title span:first-child {
+  font-size: 1.5rem;
+}
+
+/* ==== OPTIONS GRID ==== */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.option-card {
+  background: #f8f9fa;
+  border: 3px solid #e9ecef;
+  border-radius: var(--radius);
+  padding: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.option-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+  border-color: var(--color-primary);
+}
+
+.option-card.selected {
+  background: linear-gradient(135deg, rgba(12, 60, 120, 0.05) 0%, rgba(30, 87, 153, 0.05) 100%);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-hover);
+}
+
+.option-card.disabled {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+  pointer-events: none;
+}
+
+.option-card.disabled:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.option-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: var(--color-primary);
+  transition: all 0.3s ease;
+}
+
+.option-card.selected .option-icon {
+  color: var(--color-accent);
+  transform: scale(1.1);
+}
+
+.option-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 5px;
+}
+
+.option-description {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+/* ==== DATE RANGE ==== */
+.date-range {
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-top: 15px;
+  animation: fadeIn 0.3s ease;
+}
+
+.date-range > label {
+  display: block;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.date-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.date-inputs > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-inputs label {
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.date-inputs input[type="date"] {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.date-inputs input[type="date"]:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(12, 60, 120, 0.1);
+}
+
+/* ==== PERIODO SELECT ==== */
+.periodo-select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background: white;
+  cursor: pointer;
+}
+
+.periodo-select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(12, 60, 120, 0.1);
+}
+
+.periodo-select option {
+  padding: 10px;
+}
+
+/* ==== GENERATE BUTTON ==== */
+.generate-btn {
+  width: 100%;
+  background: var(--color-primary);
+  color: var(--color-light);
+  border: none;
+  padding: 18px;
+  border-radius: var(--radius);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 30px;
+  margin-bottom: 50px; /* Espacio extra base */
+  padding-bottom: 25px; /* Espacio extra adicional base */
+  box-shadow: 0 4px 12px rgba(12, 60, 120, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.generate-btn:hover:not(:disabled) {
+  background: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(12, 60, 120, 0.4);
+}
+
+.generate-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.generate-btn:disabled {
+  background: var(--color-muted);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+  opacity: 0.6;
+}
+
+/* ==== ALERT ==== */
+.alert {
+  background: #fff3cd;
+  border: 2px solid var(--color-warning);
+  color: #856404;
+  padding: 15px;
+  border-radius: var(--radius);
+  margin-top: 15px;
+  display: none;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  animation: slideDown 0.4s ease;
+}
+
+.alert.show {
+  display: flex;
+}
+
+/* ==== ANIMATIONS ==== */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==== PRINT STYLES ==== */
+@media print {
+  body {
+    padding: 0;
+    padding-bottom: 0 !important; /* Eliminar espacio extra */
+  }
+
+  /* Eliminar espacio invisible del container */
+  .container::after {
+    display: none !important;
+  }
+
+  .generate-btn {
+    margin-bottom: 0 !important;
+    padding-bottom: 18px !important; /* Restaurar padding original */
+  }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* ========================================
+   TABLETS GRANDES: 10-14 PULGADAS (769px - 1024px)
+   Optimizado para tablets Android de 11 pulgadas
+   ======================================== */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  body {
+    padding: 15px;
+    padding-bottom: 100px; /* Espacio extra tablet */
+    align-items: flex-start; /* Contenido arriba en vez de centrado */
+    padding-top: 20px; /* Espacio superior reducido */
+  }
+
+  /* Espacio invisible al final del container para tablet */
+  .container::after {
+    height: 100px; /* Espacio extra tablet */
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  /* Header ajustado para tablets */
+  .header {
+    padding: 25px 25px; /* Padding vertical reducido */
+    margin-bottom: 20px; /* Reducido para ahorrar espacio */
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 8px; /* Reducido espacio */
+  }
+
+  .header p {
+    font-size: 0.95rem;
+  }
+
+  /* Report Selector */
+  .report-selector {
+    padding: 25px 25px; /* Reducido padding vertical */
+  }
+
+  .section {
+    margin-bottom: 25px; /* Reducido de 30px */
+  }
+
+  .section-title {
+    font-size: 1.15rem;
+    margin-bottom: 10px; /* Reducido de 12px */
+  }
+
+  .section-title span:first-child {
+    font-size: 1.3rem;
+  }
+
+  /* Grid de opciones - 2 columnas fijas en tablets */
+  .options-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px; /* Reducido de 12px */
+  }
+
+  /* Tarjetas de opciones */
+  .option-card {
+    padding: 18px 15px; /* Reducido padding vertical */
+  }
+
+  .option-icon {
+    font-size: 2.2rem;
+    margin-bottom: 6px; /* Reducido de 8px */
+  }
+
+  .option-title {
+    font-size: 1rem;
+    margin-bottom: 4px; /* Menos espacio */
+  }
+
+  .option-description {
+    font-size: 0.8rem;
+  }
+
+  /* Date inputs siguen en 2 columnas */
+  .date-range {
+    padding: 15px; /* Reducido de 18px */
+    margin-top: 12px; /* Reducido de 15px */
+  }
+
+  .date-inputs {
+    gap: 10px; /* Reducido de 12px */
+  }
+
+  .date-inputs input[type="date"] {
+    padding: 11px;
+    font-size: 0.9rem;
+  }
+
+  .date-inputs label {
+    margin-bottom: 4px; /* Reducido espacio */
+  }
+
+  /* Select de periodo */
+  .periodo-select {
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+
+  /* Botón de generar con espacio extra para tablet */
+  .generate-btn {
+    padding: 16px;
+    font-size: 1.05rem;
+    margin-top: 20px; /* Reducido de 25px */
+    margin-bottom: 75px; /* Espacio extra tablet */
+    padding-bottom: 40px; /* Espacio extra adicional tablet */
+  }
+
+  /* Alert */
+  .alert {
+    padding: 13px;
+    font-size: 0.9rem;
+    margin-top: 12px; /* Reducido espacio */
+  }
+}
+
+/* ========================================
+   TABLETS PEQUEÑAS Y MÓVILES GRANDES
+   (601px - 768px)
+   ======================================== */
+@media screen and (min-width: 601px) and (max-width: 768px) {
+  body {
+    padding: 15px;
+    padding-bottom: 100px; /* Espacio extra tablet */
+    align-items: flex-start;
+    padding-top: 15px;
+  }
+
+  /* Espacio invisible al final del container para tablet pequeña */
+  .container::after {
+    height: 100px; /* Espacio extra tablet */
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .header {
+    padding: 25px 20px;
+    margin-bottom: 20px; /* Reducido de 30px */
+  }
+
+  .header h1 {
+    font-size: 1.6rem;
+  }
+
+  .report-selector {
+    padding: 25px 20px;
+  }
+
+  /* Grid de 2 columnas en tablets pequeñas */
+  .options-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .option-card {
+    padding: 18px 12px;
+  }
+
+  .option-icon {
+    font-size: 2rem;
+  }
+
+  .date-inputs {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Botón con espacio extra para tablet pequeña */
+  .generate-btn {
+    margin-bottom: 75px; /* Espacio extra tablet */
+    padding-bottom: 40px; /* Espacio extra adicional tablet */
+  }
+}
+
+/* ========================================
+   MÓVILES (hasta 600px)
+   ======================================== */
+@media screen and (max-width: 600px) {
+  body {
+    padding: 10px;
+    padding-bottom: 125px; /* Espacio extra móvil */
+  }
+
+  /* Espacio invisible al final del container para móvil */
+  .container::after {
+    height: 125px; /* Espacio extra móvil */
+  }
+
+  .header {
+    padding: 20px 15px;
+    margin-bottom: 20px;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .header p {
+    font-size: 0.9rem;
+  }
+
+  .report-selector {
+    padding: 20px 15px;
+  }
+
+  .section {
+    margin-bottom: 25px;
+  }
+
+  .section-title {
+    font-size: 1.05rem;
+  }
+
+  /* Una columna en móviles */
+  .options-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .option-card {
+    padding: 20px;
+  }
+
+  .date-inputs {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .date-inputs input[type="date"] {
+    padding: 12px;
+  }
+
+  /* Botón con espacio extra para móvil */
+  .generate-btn {
+    font-size: 1rem;
+    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 90px; /* Espacio extra móvil */
+    padding-bottom: 50px; /* Espacio extra adicional móvil */
+  }
+}
+
+/* ========================================
+   LANDSCAPE MODE PARA TABLETS
+   (orientación horizontal en tablets)
+   ======================================== */
+@media screen and (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  .container {
+    max-width: 95%;
+  }
+
+  /* En landscape, podemos usar 3 columnas si hay espacio */
+  .options-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .header {
+    padding: 25px 30px;
+  }
+
+  .report-selector {
+    padding: 25px 30px;
+  }
+}
+
+/* ========================================
+   FIX PARA ZOOM AUTOMÁTICO EN INPUTS
+   Para Android e iOS
+   ======================================== */
+@media screen and (max-width: 1024px) {
+  /* Prevenir zoom automático en inputs en móviles y tablets */
+  input[type="date"],
+  select,
+  textarea,
+  .periodo-select {
+    font-size: 16px !important;
+  }
+}

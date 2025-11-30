@@ -1,0 +1,1066 @@
+/* modulos/reportes/assets/css/reportes_comisiones.css */
+
+/* ==== VARIABLES DE COLOR (Estándar Corporativo) ==== */
+:root {
+  --color-bg: #f2f4f8;
+  --color-primary: #0c3c78;
+  --color-secondary: #1e5799;
+  --color-accent: #10B981;
+  --color-success: #10b981;
+  --color-danger: #ef4444;
+  --color-warning: #f59e0b;
+  --color-info: #3b82f6;
+  --color-dark: #1e1f26;
+  --color-light: #ffffff;
+  --color-muted: #6b7280;
+  --radius: 12px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* ==== RESET ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Poppins', sans-serif;
+}
+
+body {
+  background: var(--color-bg);
+  min-height: 100vh;
+  padding: 20px;
+  padding-bottom: 75px; /* Espacio extra abajo para scroll en tablets/móviles */
+}
+
+/* ==== CONTAINER ==== */
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Espacio extra al final del contenedor para scroll en tablets/móviles */
+.container::after {
+  content: '';
+  display: block;
+  height: 75px;
+}
+
+@media screen and (max-width: 1024px) {
+  .container::after {
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container::after {
+    height: 125px;
+  }
+}
+
+/* ==== HEADER ==== */
+.header {
+  background: var(--color-light);
+  padding: 40px;
+  border-radius: var(--radius);
+  margin-bottom: 30px;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.header h1 {
+  color: var(--color-primary);
+  font-size: 2rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header h1 i {
+  font-size: 2.2rem;
+  color: var(--color-accent);
+}
+
+.header p {
+  color: var(--color-muted);
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.back-button a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.back-button a:hover {
+  background: rgba(12, 60, 120, 0.1);
+  transform: translateX(-5px);
+}
+
+/* ==== CARDS ==== */
+.card {
+  background: var(--color-light);
+  border-radius: var(--radius);
+  padding: 30px;
+  box-shadow: var(--shadow);
+  page-break-inside: avoid;
+  margin-bottom: 30px;
+}
+
+.card h2 {
+  color: var(--color-primary);
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.card h2 i {
+  color: var(--color-accent);
+  font-size: 1.5rem;
+}
+
+/* ==== SUMMARY ==== */
+.summary {
+  background: var(--color-light);
+  border-radius: var(--radius);
+  padding: 25px;
+  box-shadow: var(--shadow);
+  margin-bottom: 30px;
+}
+
+.chart-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chart-title i {
+  color: var(--color-accent);
+  font-size: 1.5rem;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.summary-grid-4 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.summary-item {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 20px;
+  border-radius: var(--radius);
+  transition: all 0.3s ease;
+}
+
+.summary-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.summary-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-light);
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.summary-icon.success {
+  background: linear-gradient(135deg, var(--color-success), #059669);
+}
+
+.summary-icon.warning {
+  background: linear-gradient(135deg, var(--color-warning), #d97706);
+}
+
+.summary-icon.primary {
+  background: linear-gradient(135deg, var(--color-info), #2563eb);
+}
+
+.summary-content {
+  flex: 1;
+}
+
+.summary-content h3 {
+  font-size: 1.8rem;
+  color: var(--color-primary);
+  margin: 0 0 5px 0;
+  font-weight: 700;
+}
+
+.summary-content p {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+/* ==== BOTONES PERSONALIZADOS ==== */
+.export-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  margin-bottom: 50px; /* Margen inferior para permitir scroll */
+  padding-bottom: 25px; /* Padding adicional */
+}
+
+.btn-export {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: 2px solid var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-light);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-export:hover {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(12, 60, 120, 0.3);
+}
+
+.btn-export i {
+  font-size: 1.2rem;
+}
+
+.btn-export.outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-export.outline:hover {
+  background: var(--color-primary);
+  color: var(--color-light);
+}
+
+/* ==== SECTION WITH TABLE ==== */
+.section-with-table {
+  margin-bottom: 40px;
+}
+
+.chart-card-full {
+  background: var(--color-light);
+  border-radius: var(--radius);
+  padding: 25px;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* ==== CHARTS GRID ==== */
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==== CHART CONTAINER ==== */
+.chart-container {
+  position: relative;
+  height: 500px;
+  width: 100%;
+}
+
+/* ==== TABLE ==== */
+.table-responsive {
+  overflow-x: auto;
+  margin-top: 15px;
+}
+
+.details-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.details-table thead {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.details-table th {
+  padding: 14px 12px;
+  text-align: left;
+  font-weight: 700;
+  color: var(--color-dark);
+  border-bottom: 2px solid #dee2e6;
+  font-size: 0.9rem;
+}
+
+.details-table td {
+  padding: 12px;
+  border-bottom: 1px solid #dee2e6;
+  color: var(--color-dark);
+}
+
+.details-table tbody tr {
+  transition: all 0.3s ease;
+}
+
+.details-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.details-table .position {
+  font-weight: 700;
+  color: var(--color-primary);
+  text-align: center;
+  width: 50px;
+  background: linear-gradient(135deg, rgba(12, 60, 120, 0.1) 0%, rgba(30, 87, 153, 0.1) 100%);
+  border-radius: 8px;
+}
+
+.details-table .no-data {
+  text-align: center;
+  color: var(--color-muted);
+  font-style: italic;
+  padding: 40px;
+  font-size: 1rem;
+}
+
+/* ==== ESTADOS Y UTILIDADES ==== */
+.text-center {
+  text-align: center;
+}
+
+.text-end {
+  text-align: right;
+}
+
+.fw-bold {
+  font-weight: 700;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.text-muted {
+  color: var(--color-muted) !important;
+}
+
+.no-print {
+  display: block;
+}
+
+/* ==== PRINT STYLES ==== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 1.5cm;
+  }
+
+  body {
+    background: white;
+    padding: 0;
+    padding-bottom: 0 !important; /* Eliminar espacio extra en impresión */
+  }
+
+  /* Eliminar espacios extra en impresión */
+  .container::after {
+    display: none !important;
+  }
+
+  .container {
+    padding-bottom: 0 !important;
+  }
+
+  .back-button,
+  .export-buttons {
+    display: none !important;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  .header,
+  .chart-card-full,
+  .summary,
+  .card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    page-break-inside: avoid;
+  }
+
+  .chart-card-full {
+    padding: 15px 5px 15px 5px !important;
+  }
+
+  .charts-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    page-break-inside: avoid;
+  }
+
+  .summary-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 15px;
+  }
+
+  .summary-grid-4 {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .summary-item {
+    break-inside: avoid;
+  }
+
+  .section-with-table {
+    page-break-inside: avoid;
+    page-break-after: always;
+  }
+
+  .section-with-table:last-of-type {
+    page-break-after: auto;
+  }
+
+  .chart-card-full {
+    margin-bottom: 15px;
+  }
+
+  .card {
+    margin-bottom: 0;
+  }
+
+  .chart-container {
+    height: 300px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .charts-grid .chart-container {
+    height: 280px !important;
+  }
+
+  .details-table {
+    page-break-inside: avoid;
+  }
+
+  .details-table tr {
+    page-break-inside: avoid;
+  }
+
+  .chart-title {
+    border-bottom: 3px solid var(--color-primary) !important;
+    padding-left: 10px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* ==== TABLETS GRANDES: 10-14 PULGADAS (769px - 1024px) ==== */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  body {
+    padding: 15px;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  /* Header */
+  .header {
+    padding: 30px 25px;
+    padding-top: 50px;
+    margin-bottom: 25px;
+  }
+
+  .back-button a {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+
+  /* Summary */
+  .summary {
+    padding: 20px;
+    margin-bottom: 25px;
+  }
+
+  .chart-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+  }
+
+  .chart-title i {
+    font-size: 1.3rem;
+  }
+
+  .summary-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+
+  .summary-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .summary-item {
+    padding: 18px 15px;
+  }
+
+  .summary-icon {
+    width: 55px;
+    height: 55px;
+    font-size: 1.6rem;
+  }
+
+  .summary-content h3 {
+    font-size: 1.6rem;
+  }
+
+  .summary-content p {
+    font-size: 0.85rem;
+  }
+
+  /* Section with table */
+  .section-with-table {
+    margin-bottom: 35px;
+  }
+
+  .chart-card-full {
+    padding: 20px;
+    margin-bottom: 18px;
+  }
+
+  /* Chart container */
+  .chart-container {
+    height: 420px;
+  }
+
+  /* Charts grid */
+  .charts-grid {
+    gap: 15px;
+  }
+
+  /* Cards */
+  .card {
+    padding: 25px;
+  }
+
+  .card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 18px;
+  }
+
+  .card h2 i {
+    font-size: 1.3rem;
+  }
+
+  /* Tables */
+  .table-responsive {
+    margin-top: 12px;
+  }
+
+  .details-table {
+    font-size: 0.9rem;
+  }
+
+  .details-table th {
+    padding: 12px 10px;
+    font-size: 0.85rem;
+  }
+
+  .details-table td {
+    padding: 11px 10px;
+  }
+
+  .details-table .position {
+    width: 45px;
+  }
+
+  /* Export buttons */
+  .export-buttons {
+    gap: 12px;
+    margin-top: 25px;
+  }
+
+  .btn-export {
+    padding: 11px 20px;
+    font-size: 0.95rem;
+  }
+
+  .btn-export i {
+    font-size: 1.1rem;
+  }
+}
+
+/* ==== TABLETS PEQUEÑAS (601px - 768px) ==== */
+@media screen and (min-width: 601px) and (max-width: 768px) {
+  body {
+    padding: 12px;
+  }
+
+  .header {
+    padding: 25px 20px;
+    padding-top: 60px;
+  }
+
+  .back-button {
+    position: static;
+    margin-bottom: 12px;
+  }
+
+  .summary {
+    padding: 18px;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .summary-grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-item {
+    padding: 16px;
+  }
+
+  .summary-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .summary-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .chart-container {
+    height: 380px;
+  }
+
+  .card {
+    padding: 22px;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ==== MÓVILES (hasta 600px) ==== */
+@media screen and (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  .header {
+    padding: 20px 15px;
+    padding-top: 65px;
+    margin-bottom: 20px;
+  }
+
+  .back-button {
+    position: static;
+    margin-bottom: 15px;
+  }
+
+  /* Summary */
+  .summary {
+    padding: 18px;
+    margin-bottom: 20px;
+  }
+
+  .chart-title {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+  }
+
+  .chart-title i {
+    font-size: 1.2rem;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .summary-grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-item {
+    padding: 15px;
+    gap: 12px;
+  }
+
+  .summary-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+
+  .summary-content h3 {
+    font-size: 1.4rem;
+  }
+
+  .summary-content p {
+    font-size: 0.8rem;
+  }
+
+  /* Section with table */
+  .section-with-table {
+    margin-bottom: 30px;
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .chart-card-full {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .chart-container {
+    height: 320px;
+  }
+
+  /* Cards */
+  .card {
+    padding: 20px;
+  }
+
+  .card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+
+  .card h2 i {
+    font-size: 1.2rem;
+  }
+
+  /* Tables */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .details-table {
+    font-size: 0.85rem;
+  }
+
+  .details-table th {
+    padding: 10px 8px;
+    font-size: 0.8rem;
+  }
+
+  .details-table td {
+    padding: 10px 8px;
+  }
+
+  .details-table .position {
+    width: 40px;
+  }
+
+  .details-table .no-data {
+    padding: 30px;
+    font-size: 0.9rem;
+  }
+
+  /* Export buttons */
+  .export-buttons {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .btn-export {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+/* ==== LANDSCAPE MODE PARA TABLETS ==== */
+@media screen and (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  .container {
+    max-width: 95%;
+  }
+
+  .summary-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .summary-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chart-container {
+    height: 380px;
+  }
+}
+
+/* ==== FIX PARA ZOOM AUTOMÁTICO EN INPUTS ==== */
+@media screen and (max-width: 1024px) {
+  input,
+  select,
+  textarea,
+  button {
+    font-size: 16px !important;
+  }
+}
+  
+
+  .card-header {
+    padding: 15px;
+    font-size: 1rem;
+  }
+
+  .card-body {
+    padding: 15px;
+  }
+
+  #chart-container {
+    height: 300px;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -15px;
+    padding: 0 15px;
+  }
+
+  .table {
+    font-size: 0.8rem;
+    min-width: 600px;
+  }
+
+  .table thead th {
+    padding: 10px 8px;
+    font-size: 0.75rem;
+  }
+
+  .table tbody td {
+    padding: 10px 8px;
+  }
+
+  .badge {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+  }
+
+  .badge-comision {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+
+/* ==== LANDSCAPE MODE PARA TABLETS ==== */
+@media screen and (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  #chart-container {
+    height: 360px;
+  }
+
+  .stats-card {
+    padding: 18px;
+  }
+
+  .stats-card h3 {
+    font-size: 1.7rem;
+  }
+}
+
+/* ==== FIX PARA ZOOM AUTOMÁTICO EN INPUTS ==== */
+@media screen and (max-width: 1024px) {
+  input,
+  select,
+  textarea,
+  button {
+    font-size: 16px !important;
+  }
+}
+
+/* ==== ANIMACIONES ==== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card,
+.stats-card,
+.filter-section {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* ==== MEJORAS VISUALES ==== */
+.d-flex {
+  display: flex;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.text-muted {
+  color: var(--color-muted) !important;
+}
+
+/* ==== COLORES DE ICONOS ==== */
+.fa-dollar-sign {
+  color: #10b981;
+}
+
+.fa-users {
+  color: #3b82f6;
+}
+
+.fa-file-invoice {
+  color: #f59e0b;
+}
+
+.fa-chart-bar {
+  color: var(--color-success);
+}
+
+.fa-table {
+  color: var(--color-primary);
+}
+
+.fa-print {
+  color: var(--color-muted);
+}
+
+.fa-arrow-left {
+  color: var(--color-primary);
+}
+
+.fa-calendar-alt {
+  color: var(--color-secondary);
+}
+
+/* ==== ESPACIO EXTRA PARA TABLETS Y MÓVILES ==== */
+@media screen and (max-width: 1024px) {
+  body {
+    padding-bottom: 100px !important;
+  }
+  
+  .export-buttons {
+    margin-bottom: 75px !important;
+    padding-bottom: 40px !important;
+  }
+  
+  .container {
+    padding-bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    padding-bottom: 125px !important;
+  }
+  
+  .export-buttons {
+    margin-bottom: 90px !important;
+    padding-bottom: 50px !important;
+  }
+}
